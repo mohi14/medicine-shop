@@ -71,19 +71,19 @@
                 e.preventDefault();
                 var $this = $(this),
                     $target = $this.attr('href');
-                $body.addClass('ltn__utilize-open');
-                $($target).addClass('ltn__utilize-open');
+                $body.addclassName('ltn__utilize-open');
+                $($target).addclassName('ltn__utilize-open');
                 $ltn__utilizeOverlay.fadeIn();
-                if ($this.parent().hasClass('mobile-menu-toggle')) {
-                    $this.addClass('close');
+                if ($this.parent().hasclassName('mobile-menu-toggle')) {
+                    $this.addclassName('close');
                 }
             });
             $('.ltn__utilize-close, .ltn__utilize-overlay').on('click', function (e) {
                 e.preventDefault();
-                $body.removeClass('ltn__utilize-open');
-                $ltn__utilize.removeClass('ltn__utilize-open');
+                $body.removeclassName('ltn__utilize-open');
+                $ltn__utilize.removeclassName('ltn__utilize-open');
                 $ltn__utilizeOverlay.fadeOut();
-                $mobileMenuToggle.find('a').removeClass('close');
+                $mobileMenuToggle.find('a').removeclassName('close');
             });
         })();
 
@@ -95,21 +95,21 @@
                 $ltn__utilizeNavSubMenu = $ltn__utilizeNav.find('.sub-menu');
 
             /*Add Toggle Button With Off Canvas Sub Menu*/
-            $ltn__utilizeNavSubMenu.parent().prepend('<span class="menu-expand"></span>');
+            $ltn__utilizeNavSubMenu.parent().prepend('<span className="menu-expand"></span>');
 
             /*Category Sub Menu Toggle*/
             $ltn__utilizeNav.on('click', 'li a, .menu-expand', function (e) {
                 var $this = $(this);
-                if ($this.attr('href') === '#' || $this.hasClass('menu-expand')) {
+                if ($this.attr('href') === '#' || $this.hasclassName('menu-expand')) {
                     e.preventDefault();
                     if ($this.siblings('ul:visible').length) {
-                        $this.parent('li').removeClass('active');
+                        $this.parent('li').removeclassName('active');
                         $this.siblings('ul').slideUp();
-                        $this.parent('li').find('li').removeClass('active');
+                        $this.parent('li').find('li').removeclassName('active');
                         $this.parent('li').find('ul:visible').slideUp();
                     } else {
-                        $this.parent('li').addClass('active');
-                        $this.closest('li').siblings('li').removeClass('active').find('li').removeClass('active');
+                        $this.parent('li').addclassName('active');
+                        $this.closest('li').siblings('li').removeclassName('active').find('li').removeclassName('active');
                         $this.closest('li').siblings('li').find('ul:visible').slideUp();
                         $this.siblings('ul').slideDown();
                     }
@@ -124,7 +124,7 @@
         $('.mega-menu').each(function(){
             if($(this).children('li').length){
                 var ulChildren = $(this).children('li').length;
-                $(this).addClass('column-'+ulChildren)
+                $(this).addclassName('column-'+ulChildren)
             }
         });
         
@@ -137,7 +137,7 @@
 
         /* Mega Munu  */
         /* $(".mega-menu").parent().css({"position": "inherit"}); */
-        $(".mega-menu").parent().addClass("mega-menu-parent");
+        $(".mega-menu").parent().addclassName("mega-menu-parent");
         
 
         /* Add space for Elementor Menu Anchor link */
@@ -158,7 +158,7 @@
         /* Category Menu More Item show */
         $('.ltn__category-menu-more-item-parent').on('click', function(){
             $('.ltn__category-menu-more-item-child').slideToggle();
-            $(this).toggleClass('rx-change');
+            $(this).toggleclassName('rx-change');
 
         });
 
@@ -166,7 +166,7 @@
         $('.ltn__category-submenu').each(function(){
             if($(this).children('li').length){
                 var ulChildren = $(this).children('li').length;
-                $(this).addClass('ltn__category-column-no-'+ulChildren)
+                $(this).addclassName('ltn__category-column-no-'+ulChildren)
             }
         });
 
@@ -176,22 +176,22 @@
             if($(window).width() < 991){
                 $(this).removeAttr('href');
                 var element = $(this).parent('li');
-                if (element.hasClass('open')) {
-                    element.removeClass('open');
-                    element.find('li').removeClass('open');
+                if (element.hasclassName('open')) {
+                    element.removeclassName('open');
+                    element.find('li').removeclassName('open');
                     element.find('ul').slideUp();
                 }
                 else {
-                    element.addClass('open');
+                    element.addclassName('open');
                     element.children('ul').slideDown();
                     element.siblings('li').children('ul').slideUp();
-                    element.siblings('li').removeClass('open');
-                    element.siblings('li').find('li').removeClass('open');
+                    element.siblings('li').removeclassName('open');
+                    element.siblings('li').find('li').removeclassName('open');
                     element.siblings('li').find('ul').slideUp();
                 }
             }
             });
-            $('.ltn__category-menu-toggle .ltn__category-menu-drop > a').append('<span class="expand"></span>');
+            $('.ltn__category-menu-toggle .ltn__category-menu-drop > a').append('<span className="expand"></span>');
         }
         ltn__CategoryMenuToggle();
 
@@ -216,7 +216,7 @@
         -------------------------------------------------------- */
         // Handle click on toggle search button
         $('.header-search-1').on('click', function() {
-            $('.header-search-1, .header-search-1-form').toggleClass('search-open');
+            $('.header-search-1, .header-search-1-form').toggleclassName('search-open');
             return false;
         });
 
@@ -261,8 +261,8 @@
         --------------------------------------------------------- */
         var ltn__active_item = $('.ltn__feature-item-6, .ltn__our-journey-wrap ul li, .ltn__pricing-plan-item')
         ltn__active_item.mouseover(function() {
-            ltn__active_item.removeClass('active');
-            $(this).addClass('active');
+            ltn__active_item.removeclassName('active');
+            $(this).addclassName('active');
         });
 
         /* --------------------------------------------------------
@@ -282,8 +282,8 @@
             dots: false,
             arrows: true,
             focusOnSelect: true,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -318,8 +318,8 @@
         $ltnGalleryFilterMenu.on( 'click', 'button, a', function() {
             var $this = $(this),
                 $filterValue = $this.attr('data-filter');
-            $ltnGalleryFilterMenu.find('button, a').removeClass('active');
-            $this.addClass('active');
+            $ltnGalleryFilterMenu.find('button, a').removeclassName('active');
+            $this.addclassName('active');
             $ltnGalleryActive.isotope({ filter: $filterValue });
         });
         /*Grid*/
@@ -361,8 +361,8 @@
             speed: 300,
             slidesToShow: 1,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -389,8 +389,8 @@
             speed: 300,
             slidesToShow: 1,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -427,8 +427,8 @@
             asNavFor: '.ltn__slider-11-img-slide-arrow-active',
             slidesToShow: 1,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1600,
@@ -480,8 +480,8 @@
             arrows: false, /* image slide arrow */
             centerMode: true,
             focusOnSelect: true,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1600,
@@ -524,8 +524,8 @@
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -562,8 +562,8 @@
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -604,8 +604,8 @@
             speed: 300,
             slidesToShow: 4,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -648,8 +648,8 @@
             speed: 300,
             slidesToShow: 4,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1800,
@@ -720,8 +720,8 @@
             speed: 300,
             slidesToShow: 4,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -761,8 +761,8 @@
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -802,8 +802,8 @@
             speed: 300,
             slidesToShow: 1,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
         });
 
         /* --------------------------------------------------------
@@ -816,8 +816,8 @@
             speed: 300,
             slidesToShow: 4,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -865,8 +865,8 @@
             speed: 300,
             slidesToShow: 1,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -915,8 +915,8 @@
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -967,8 +967,8 @@
             speed: 300,
             slidesToShow: 1,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -1007,8 +1007,8 @@
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -1055,8 +1055,8 @@
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1600,
@@ -1114,8 +1114,8 @@
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -1169,8 +1169,8 @@
             speed: 300,
             slidesToShow: 2,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -1220,8 +1220,8 @@
             speed: 300,
             slidesToShow: 4,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -1279,8 +1279,8 @@
             speed: 300,
             slidesToShow: 7,
             slidesToScroll: 3,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -1341,8 +1341,8 @@
             slidesToScroll: 1,
             centerMode: true,
             centerPadding: '0px',
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -1383,8 +1383,8 @@
             slidesToScroll: 1,
             centerMode: true,
             centerPadding: '80px',
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -1431,8 +1431,8 @@
             slidesToScroll: 1,
             centerMode: true,
             centerPadding: '0px',
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -1478,8 +1478,8 @@
             slidesToScroll: 1,
             centerMode: true,
             centerPadding: '0px',
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -1531,8 +1531,8 @@
             slidesToScroll: 1,
             centerMode: true,
             centerPadding: '450px',
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1600,
@@ -1601,8 +1601,8 @@
                 speed: 300,
                 slidesToShow: 5,
                 slidesToScroll: 1,
-                prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-                nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+                prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+                nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
                 responsive: [
                     {
                         breakpoint: 992,
@@ -1641,8 +1641,8 @@
             speed: 300,
             slidesToShow: 1,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -1685,8 +1685,8 @@
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 1200,
@@ -1737,8 +1737,8 @@
                 speed: 300,
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-                nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>'
+                prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+                nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>'
             });
         };
 
@@ -1749,13 +1749,13 @@
 
             var $this = $(this),
                 finalDate = $(this).data('countdown');
-            if (!$this.hasClass('countdown-full-format')) {
+            if (!$this.hasclassName('countdown-full-format')) {
                 $this.countdown(finalDate, function (event) {
-                    $this.html(event.strftime('<div class="single"><h1>%D</h1><p>Days</p></div> <div class="single"><h1>%H</h1><p>Hrs</p></div> <div class="single"><h1>%M</h1><p>Mins</p></div> <div class="single"><h1>%S</h1><p>Secs</p></div>'));
+                    $this.html(event.strftime('<div className="single"><h1>%D</h1><p>Days</p></div> <div className="single"><h1>%H</h1><p>Hrs</p></div> <div className="single"><h1>%M</h1><p>Mins</p></div> <div className="single"><h1>%S</h1><p>Secs</p></div>'));
                 });
             } else {
                 $this.countdown(finalDate, function (event) {
-                    $this.html(event.strftime('<div class="single"><h1>%Y</h1><p>Years</p></div> <div class="single"><h1>%m</h1><p>Months</p></div> <div class="single"><h1>%W</h1><p>Weeks</p></div> <div class="single"><h1>%d</h1><p>Days</p></div> <div class="single"><h1>%H</h1><p>Hrs</p></div> <div class="single"><h1>%M</h1><p>Mins</p></div> <div class="single"><h1>%S</h1><p>Secs</p></div>'));
+                    $this.html(event.strftime('<div className="single"><h1>%Y</h1><p>Years</p></div> <div className="single"><h1>%m</h1><p>Months</p></div> <div className="single"><h1>%W</h1><p>Weeks</p></div> <div className="single"><h1>%d</h1><p>Days</p></div> <div className="single"><h1>%H</h1><p>Hrs</p></div> <div className="single"><h1>%M</h1><p>Mins</p></div> <div className="single"><h1>%S</h1><p>Secs</p></div>'));
                 });
             }
 
@@ -1771,8 +1771,8 @@
           delay: 10,
           time: 2000
         });
-        $('.counter').addClass('animated fadeInDownBig');  
-        $('h3').addClass('animated fadeIn');
+        $('.counter').addclassName('animated fadeInDownBig');  
+        $('h3').addclassName('animated fadeIn');
         
 
         /* --------------------------------------------------------
@@ -1790,13 +1790,13 @@
                 "image_size": "600", /* 320 */
             });
             $('.ltn__instafeed').on("DOMNodeInserted", function (e) {
-                if (e.target.className == 'instagram_gallery') {
-                    $('.ltn__instafeed-slider-2 .' + e.target.className).slick({
+                if (e.target.classNameName == 'instagram_gallery') {
+                    $('.ltn__instafeed-slider-2 .' + e.target.classNameName).slick({
                         infinite: true,
                         slidesToShow: 3,
                         slidesToScroll: 1,
-                        prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-                        nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+                        prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+                        nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
                         responsive: [{
                             breakpoint: 767,
                             settings: {
@@ -1809,12 +1809,12 @@
                             }
                         }]
                     })
-                    $('.ltn__instafeed-slider-1 .' + e.target.className).slick({
+                    $('.ltn__instafeed-slider-1 .' + e.target.classNameName).slick({
                         infinite: true,
                         slidesToShow: 5,
                         slidesToScroll: 1,
-                        prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-                        nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+                        prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+                        nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
                         responsive: [{
                             breakpoint: 119,
                             settings: {
@@ -1861,8 +1861,8 @@
         /* --------------------------------------------------------
             33. Quantity plus minus
         -------------------------------------------------------- */
-        $(".cart-plus-minus").prepend('<div class="dec qtybutton">-</div>');
-        $(".cart-plus-minus").append('<div class="inc qtybutton">+</div>');
+        $(".cart-plus-minus").prepend('<div className="dec qtybutton">-</div>');
+        $(".cart-plus-minus").append('<div className="inc qtybutton">+</div>');
         $(".qtybutton").on("click", function() {
             var $button = $(this);
             var oldValue = $button.parent().find("input").val();
@@ -1885,7 +1885,7 @@
             34. scrollUp active
         -------------------------------------------------------- */
         $.scrollUp({
-            scrollText: '<i class="fa fa-angle-up"></i>',
+            scrollText: '<i className="fa fa-angle-up"></i>',
             easingType: 'linear',
             scrollSpeed: 900,
             animation: 'fade'
@@ -1917,8 +1917,8 @@
             speed: 1500,
             slidesToShow: 1,
             slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            prevArrow: '<a className="slick-prev"><i className="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a className="slick-next"><i className="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
             responsive: [
                 {
                     breakpoint: 992,
@@ -1989,7 +1989,7 @@
                 'height': '130px',
                 'width': '130px',
                 'z-index': '100'
-            }).addClass('quote-animated-image').appendTo($('body')).animate({
+            }).addclassName('quote-animated-image').appendTo($('body')).animate({
                 'top': cart.offset().top + 10,
                 'left': cart.offset().left + 10,
                 'width': 130,
@@ -2050,9 +2050,9 @@
     $(window).on('scroll',function() {    
         var scroll = $(window).scrollTop();
         if (scroll < 445) {
-            $(".ltn__header-sticky").removeClass("sticky-active");
+            $(".ltn__header-sticky").removeclassName("sticky-active");
         } else {
-            $(".ltn__header-sticky").addClass("sticky-active");
+            $(".ltn__header-sticky").addclassName("sticky-active");
         }
     }); 
 

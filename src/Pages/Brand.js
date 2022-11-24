@@ -63,13 +63,13 @@ const Brand = () => {
         <>
         {/* <!-- BRAND LOGO AREA START --> */}
 
-        <div class="ltn__brand-logo-area ltn__brand-logo-1 section-bg-1--- pt-110--- pb-95 plr--9--- d-none--- ">
-        <div class="container">
-        <div class="row ltn__brand-logo-active">  
+        <div className="ltn__brand-logo-area ltn__brand-logo-1 section-bg-1--- pt-110--- pb-95 plr--9--- d-none--- ">
+        <div className="container">
+        <div className="row ltn__brand-logo-active">  
         <Slider {...settings}>
           {brands.map(brand =>(<div>
-          <div class="col-lg-12">
-                    <div class="ltn__brand-logo-item">
+          <div className="col-lg-12">
+                    <div className="ltn__brand-logo-item">
                         <img src={brand.imageUrl} alt="Brand Logo"/>
                     </div>
                 </div>

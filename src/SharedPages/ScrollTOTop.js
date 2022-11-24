@@ -25,7 +25,7 @@ const ScrollTOTop = () => {
           textAlign: 'center',
         }}
       >
-        <i class="fa fa-angle-up">
+        <i className="fa fa-angle-up">
             
         </i>
         

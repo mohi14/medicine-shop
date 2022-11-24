@@ -5,7 +5,7 @@
 # Gutter Code 
 # Normalize
 # Typography
-# Custom Class
+# Custom className
 # input and button type focus outline disable
 # Form input box
 # Text meant only for screen readers.
@@ -155,11 +155,11 @@ font-family: 'Nunito', sans-serif;
     position: relative;
 }
 
-.ltn__no-gutter > [class*='col-'] { /* No padding only for child columns */
+.ltn__no-gutter > [className*='col-'] { /* No padding only for child columns */
     padding-right: 0;
     padding-left: 0;
 }
-.ltn__no-gutter-all [class*='col-'] { /* No padding for every columns */
+.ltn__no-gutter-all [className*='col-'] { /* No padding for every columns */
     padding-right: 0;
     padding-left: 0;
 }
@@ -169,7 +169,7 @@ font-family: 'Nunito', sans-serif;
         margin-left: -0px;
         margin-right: -0px;
     }
-    .ltn__custom-gutter > [class*='col-'] {
+    .ltn__custom-gutter > [className*='col-'] {
         padding-right: 0px;
         padding-left: 0px; 
     }
@@ -177,7 +177,7 @@ font-family: 'Nunito', sans-serif;
         .row {
             margin-left: -15px;
             margin-right: -15px;
-            & [class*='col-'] {
+            & [className*='col-'] {
                 padding-right: 15px;
                 padding-left: 15px; 
             }
@@ -193,7 +193,7 @@ font-family: 'Nunito', sans-serif;
         margin-left: -15px;
         margin-right: -15px;
     }
-    .ltn__custom-gutter > [class*='col-'] {
+    .ltn__custom-gutter > [className*='col-'] {
         padding-right: 15px;
         padding-left: 15px; 
     }
@@ -201,7 +201,7 @@ font-family: 'Nunito', sans-serif;
         margin-left: -15px;
         margin-right: -15px;
     }
-    .ltn__custom-gutter-all [class*='col-'] {
+    .ltn__custom-gutter-all [className*='col-'] {
         padding-right: 15px;
         padding-left: 15px; 
     }
@@ -215,7 +215,7 @@ font-family: 'Nunito', sans-serif;
             margin-right: -8px;
         }
     }
-    .ltn__product-gutter [class*='col-'] {
+    .ltn__product-gutter [className*='col-'] {
         padding-right: 8px;
         padding-left: 8px; 
     }
@@ -462,7 +462,7 @@ ol li {
 }
 
 /* -------------------------------------
-    Custom Class
+    Custom className
 ------------------------------------- */
 .section-bg-1 {
     background-color: var(--section-bg-1);
@@ -1186,7 +1186,7 @@ object {
     max-width: 100%;
     clear: both;
 }
-.wp-caption img[class*="wp-image-"] {
+.wp-caption img[className*="wp-image-"] {
     display: block;
     margin-left: auto;
     margin-right: auto;

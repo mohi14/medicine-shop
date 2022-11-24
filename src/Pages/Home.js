@@ -17,7 +17,7 @@ import TrendingProducts from './TrendingProducts';
 
 const Home = () => {
     return (
-        <div class="body-wrapper">
+        <div className="body-wrapper">
          <Header></Header> 
          <Slider></Slider>   
          <Category></Category> 

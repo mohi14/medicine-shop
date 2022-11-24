@@ -21,20 +21,20 @@ const AccountDetails = () => {
             
 
        {/*  <!-- BREADCRUMB AREA START --> */}
-    <div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "  style={{  
+    <div className="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "  style={{  
   backgroundImage: "url(" + "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/bg/14.jpg" + ")",
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat'
 }}>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="ltn__breadcrumb-inner">
-                        <h1 class="page-title">Account</h1>
-                        <div class="ltn__breadcrumb-list">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-12">
+                    <div className="ltn__breadcrumb-inner">
+                        <h1 className="page-title">Account</h1>
+                        <div className="ltn__breadcrumb-list">
                             <ul>
-                                <li><NavLink to="/"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</NavLink></li>
+                                <li><NavLink to="/"><span className="ltn__secondary-color"><i className="fas fa-home"></i></span> Home</NavLink></li>
                                 <li>My Account</li>
                             </ul>
                         </div>
@@ -46,38 +46,38 @@ const AccountDetails = () => {
     {/*  <!-- BREADCRUMB AREA END --> */}
 
     {/* <!-- WISHLIST AREA START --> */}
-    <div class="liton__wishlist-area pb-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
+    <div className="liton__wishlist-area pb-70">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-12">
                     {/* <!-- PRODUCT TAB AREA START --> */}
-                    <div class="ltn__product-tab-area">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="ltn__tab-menu-list mb-50">
-                                        <div class="nav">
-                                            <a class="active show" data-bs-toggle="tab" href="#liton_tab_1_1">Dashboard <i class="fas fa-home"></i></a>
-                                            <a data-bs-toggle="tab" href="#liton_tab_1_2">Orders <i class="fas fa-file-alt"></i></a>
-                                            <a data-bs-toggle="tab" href="#liton_tab_1_3">Downloads <i class="fas fa-arrow-down"></i></a>
-                                            <a data-bs-toggle="tab" href="#liton_tab_1_4">address <i class="fas fa-map-marker-alt"></i></a>
-                                            <a data-bs-toggle="tab" href="#liton_tab_1_5">Account Details <i class="fas fa-user"></i></a>
-                                            <a href="login.html">Logout <i class="fas fa-sign-out-alt"></i></a>
+                    <div className="ltn__product-tab-area">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-4">
+                                    <div className="ltn__tab-menu-list mb-50">
+                                        <div className="nav">
+                                            <a className="active show" data-bs-toggle="tab" href="#liton_tab_1_1">Dashboard <i className="fas fa-home"></i></a>
+                                            <a data-bs-toggle="tab" href="#liton_tab_1_2">Orders <i className="fas fa-file-alt"></i></a>
+                                            <a data-bs-toggle="tab" href="#liton_tab_1_3">Downloads <i className="fas fa-arrow-down"></i></a>
+                                            <a data-bs-toggle="tab" href="#liton_tab_1_4">address <i className="fas fa-map-marker-alt"></i></a>
+                                            <a data-bs-toggle="tab" href="#liton_tab_1_5">Account Details <i className="fas fa-user"></i></a>
+                                            <a href="login.html">Logout <i className="fas fa-sign-out-alt"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-8">
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade active show" id="liton_tab_1_1">
-                                            <div class="ltn__myaccount-tab-content-inner">
+                                <div className="col-lg-8">
+                                    <div className="tab-content">
+                                        <div className="tab-pane fade active show" id="liton_tab_1_1">
+                                            <div className="ltn__myaccount-tab-content-inner">
                                                 <p>Hello <strong>UserName</strong> (not <strong>UserName</strong>? <small><a href="login-register.html">Log out</a></small> )</p>
                                                 <p>From your account dashboard you can view your <span>recent orders</span>, manage your <span>shipping and billing addresses</span>, and <span>edit your password and account details</span>.</p>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="liton_tab_1_2">
-                                            <div class="ltn__myaccount-tab-content-inner">
-                                                <div class="table-responsive">
-                                                    <table class="table">
+                                        <div className="tab-pane fade" id="liton_tab_1_2">
+                                            <div className="ltn__myaccount-tab-content-inner">
+                                                <div className="table-responsive">
+                                                    <table className="table">
                                                         <thead>
                                                             <tr>
                                                                 <th>Order</th>
@@ -114,10 +114,10 @@ const AccountDetails = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="liton_tab_1_3">
-                                            <div class="ltn__myaccount-tab-content-inner">
-                                                <div class="table-responsive">
-                                                    <table class="table">
+                                        <div className="tab-pane fade" id="liton_tab_1_3">
+                                            <div className="ltn__myaccount-tab-content-inner">
+                                                <div className="table-responsive">
+                                                    <table className="table">
                                                         <thead>
                                                             <tr>
                                                                 <th>Product</th>
@@ -131,30 +131,30 @@ const AccountDetails = () => {
                                                                 <td>Carsafe - Car Service PSD Template</td>
                                                                 <td>Nov 22, 2020</td>
                                                                 <td>Yes</td>
-                                                                <td><a href="#"><i class="far fa-arrow-to-bottom mr-1"></i> Download File</a></td>
+                                                                <td><a href="#"><i className="far fa-arrow-to-bottom mr-1"></i> Download File</a></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Carsafe - Car Service HTML Template</td>
                                                                 <td>Nov 10, 2020</td>
                                                                 <td>Yes</td>
-                                                                <td><a href="#"><i class="far fa-arrow-to-bottom mr-1"></i> Download File</a></td>
+                                                                <td><a href="#"><i className="far fa-arrow-to-bottom mr-1"></i> Download File</a></td>
                                                             </tr>
                                                             <tr>
                                                                 <td>Carsafe - Car Service WordPress Theme</td>
                                                                 <td>Nov 12, 2020</td>
                                                                 <td>Yes</td>
-                                                                <td><a href="#"><i class="far fa-arrow-to-bottom mr-1"></i> Download File</a></td>
+                                                                <td><a href="#"><i className="far fa-arrow-to-bottom mr-1"></i> Download File</a></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="liton_tab_1_4">
-                                            <div class="ltn__myaccount-tab-content-inner">
+                                        <div className="tab-pane fade" id="liton_tab_1_4">
+                                            <div className="ltn__myaccount-tab-content-inner">
                                                 <p>The following addresses will be used on the checkout page by default.</p>
-                                                <div class="row">
-                                                    <div class="col-md-6 col-12 learts-mb-30">
+                                                <div className="row">
+                                                    <div className="col-md-6 col-12 learts-mb-30">
                                                         <h4>Billing Address <small><a href="#">edit</a></small></h4>
                                                         <address>
                                                             <p><strong>Alex Tuntuni</strong></p>
@@ -163,7 +163,7 @@ const AccountDetails = () => {
                                                             <p>Mobile: (123) 456-7890</p>
                                                         </address>
                                                     </div>
-                                                    <div class="col-md-6 col-12 learts-mb-30">
+                                                    <div className="col-md-6 col-12 learts-mb-30">
                                                         <h4>Shipping Address <small><a href="#">edit</a></small></h4>
                                                         <address>
                                                             <p><strong>Alex Tuntuni</strong></p>
@@ -175,31 +175,31 @@ const AccountDetails = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="liton_tab_1_5">
-                                            <div class="ltn__myaccount-tab-content-inner">
+                                        <div className="tab-pane fade" id="liton_tab_1_5">
+                                            <div className="ltn__myaccount-tab-content-inner">
                                                 <p>The following addresses will be used on the checkout page by default.</p>
-                                                <div class="ltn__form-box">
+                                                <div className="ltn__form-box">
                                                     <form action="#">
-                                                        <div class="row mb-50">
-                                                            <div class="col-md-6">
+                                                        <div className="row mb-50">
+                                                            <div className="col-md-6">
                                                                 <label>First name:</label>
                                                                 <input type="text" name="ltn__name"/>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div className="col-md-6">
                                                                 <label>Last name:</label>
                                                                 <input type="text" name="ltn__lastname"/>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div className="col-md-6">
                                                                 <label>Display Name:</label>
                                                                 <input type="text" name="ltn__lastname" placeholder="Ethan"/>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div className="col-md-6">
                                                                 <label>Display Email:</label>
                                                                 <input type="email" name="ltn__lastname" placeholder="example@example.com"/>
                                                             </div>
 
 
-                                                            <div class="col-md-6">
+                                                            <div className="col-md-6">
                                                              <label>Add Profile Image:</label>
                                                              <input type="file" onChange={handleChange} name="file"/>
                                                             </div>
@@ -207,8 +207,8 @@ const AccountDetails = () => {
                                                         </div>
                                                         <fieldset>
                                                             <legend>Password change</legend>
-                                                            <div class="row">
-                                                                <div class="col-md-12">
+                                                            <div className="row">
+                                                                <div className="col-md-12">
                                                                     <label>Current password (leave blank to leave unchanged):</label>
                                                                     <input type="password" name="ltn__name"/>
                                                                     <label>New password (leave blank to leave unchanged):</label>
@@ -218,8 +218,8 @@ const AccountDetails = () => {
                                                                 </div>
                                                             </div>
                                                         </fieldset>
-                                                        <div class="btn-wrapper">
-                                                            <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Save Changes</button>
+                                                        <div className="btn-wrapper">
+                                                            <button type="submit" className="btn theme-btn-1 btn-effect-1 text-uppercase">Save Changes</button>
                                                         </div>
 
                                                         <>
@@ -244,16 +244,16 @@ const AccountDetails = () => {
 
 
      {/*  <!-- CALL TO ACTION START (call-to-action-6) --> */}
-     <div class="ltn__call-to-action-area call-to-action-6 before-bg-bottom" data-bs-bg="img/1.jpg--">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
-                        <div class="coll-to-info text-color-white">
+     <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom" data-bs-bg="img/1.jpg--">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-12">
+                    <div className="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
+                        <div className="coll-to-info text-color-white">
                             <h1>Buy medical disposable face mask <br/> to protect your loved ones</h1>
                         </div>
-                        <div class="btn-wrapper">
-                            <a class="btn btn-effect-3 btn-white" href="shop.html">Explore Products <i class="icon-next"></i></a>
+                        <div className="btn-wrapper">
+                            <a className="btn btn-effect-3 btn-white" href="shop.html">Explore Products <i className="icon-next"></i></a>
                         </div>
                     </div>
                 </div>

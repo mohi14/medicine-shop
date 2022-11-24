@@ -1145,7 +1145,7 @@
     }
 }
 .ltn__border-between-column {
-    & [class*='col'] {
+    & [className*='col'] {
         &::before {
             position: absolute;
             content: "";

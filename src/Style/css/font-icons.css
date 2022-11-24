@@ -29,7 +29,7 @@ url("../fonts/flaticon.eot?b66957d660bcc55c5e858f139c964a40#iefix") format("embe
 url("../fonts/flaticon.svg?b66957d660bcc55c5e858f139c964a40#flaticon") format("svg");
 }
 
-i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+i[className^="flaticon-"]:before, i[className*=" flaticon-"]:before {
     font-family: flaticon !important;
     font-style: normal;
     font-weight: normal !important;
@@ -339,7 +339,7 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[className^="icon-"], [className*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: never;

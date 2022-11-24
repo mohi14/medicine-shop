@@ -22,7 +22,7 @@
 # Gutter Code 
 # Normalize
 # Typography
-# Custom Class
+# Custom className
 # input and button type focus outline disable
 # Form input box
 # Text meant only for screen readers.
@@ -162,12 +162,12 @@ font-family: 'Nunito', sans-serif;
   padding-left: 15px;
   position: relative; }
 
-.ltn__no-gutter > [class*='col-'] {
+.ltn__no-gutter > [className*='col-'] {
   /* No padding only for child columns */
   padding-right: 0;
   padding-left: 0; }
 
-.ltn__no-gutter-all [class*='col-'] {
+.ltn__no-gutter-all [className*='col-'] {
   /* No padding for every columns */
   padding-right: 0;
   padding-left: 0; }
@@ -177,13 +177,13 @@ font-family: 'Nunito', sans-serif;
   .ltn__custom-gutter {
     margin-left: -0px;
     margin-right: -0px; }
-  .ltn__custom-gutter > [class*='col-'] {
+  .ltn__custom-gutter > [className*='col-'] {
     padding-right: 0px;
     padding-left: 0px; }
   .ltn__custom-gutter-all .row {
     margin-left: -15px;
     margin-right: -15px; }
-    .ltn__custom-gutter-all .row [class*='col-'] {
+    .ltn__custom-gutter-all .row [className*='col-'] {
       padding-right: 15px;
       padding-left: 15px; } }
 
@@ -192,13 +192,13 @@ font-family: 'Nunito', sans-serif;
   .ltn__custom-gutter {
     margin-left: -15px;
     margin-right: -15px; }
-  .ltn__custom-gutter > [class*='col-'] {
+  .ltn__custom-gutter > [className*='col-'] {
     padding-right: 15px;
     padding-left: 15px; }
   .ltn__custom-gutter-all {
     margin-left: -15px;
     margin-right: -15px; }
-  .ltn__custom-gutter-all [class*='col-'] {
+  .ltn__custom-gutter-all [className*='col-'] {
     padding-right: 15px;
     padding-left: 15px; } }
 
@@ -207,7 +207,7 @@ font-family: 'Nunito', sans-serif;
   .ltn__product-gutter .row {
     margin-left: -8px;
     margin-right: -8px; }
-  .ltn__product-gutter [class*='col-'] {
+  .ltn__product-gutter [className*='col-'] {
     padding-right: 8px;
     padding-left: 8px; } }
 
@@ -459,7 +459,7 @@ ol li {
   margin-top: 1rem; }
 
 /* -------------------------------------
-    Custom Class
+    Custom className
 ------------------------------------- */
 .section-bg-1 {
   background-color: var(--section-bg-1); }
@@ -1170,7 +1170,7 @@ object {
   max-width: 100%;
   clear: both; }
 
-.wp-caption img[class*="wp-image-"] {
+.wp-caption img[className*="wp-image-"] {
   display: block;
   margin-left: auto;
   margin-right: auto; }
@@ -2631,7 +2631,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   background-color: #444; }
 
 /* ----------------------------------------------------
-    Animation Custom Class
+    Animation Custom className
 ---------------------------------------------------- */
 .ltn__effect-img {
   position: absolute; }
@@ -6499,7 +6499,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   left: -15px; }
 
 /* slide-item-3 */
-.ltn__slide-item-3 .row [class*='col-'] {
+.ltn__slide-item-3 .row [className*='col-'] {
   position: inherit; }
 
 .ltn__slide-item-3 .slide-item-info {
@@ -9487,7 +9487,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   .ltn__feature-item-box-wrap-2 .ltn__feature-item-8 {
     min-width: 280px; }
 
-.ltn__border-between-column [class*='col']::before {
+.ltn__border-between-column [className*='col']::before {
   position: absolute;
   content: "";
   left: 0;
@@ -9499,7 +9499,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   width: 1px;
   background-color: var(--border-color-1); }
 
-.ltn__border-between-column [class*='col']:first-child::before {
+.ltn__border-between-column [className*='col']:first-child::before {
   display: none; }
 
 /* feature-item-9 */

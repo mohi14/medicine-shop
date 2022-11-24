@@ -23,9 +23,9 @@ $(function() {
 			data: formData
 		})
 		.done(function(response) {
-			// Make sure that the formMessages div has the 'success' class.
-			$(formMessages).removeClass('error');
-			$(formMessages).addClass('success');
+			// Make sure that the formMessages div has the 'success' className.
+			$(formMessages).removeclassName('error');
+			$(formMessages).addclassName('success');
 
 			// Set the message text.
 			$(formMessages).text(response);
@@ -34,9 +34,9 @@ $(function() {
 			$('#contact-form input,#contact-form textarea').val('');
 		})
 		.fail(function(data) {
-			// Make sure that the formMessages div has the 'error' class.
-			$(formMessages).removeClass('success');
-			$(formMessages).addClass('error');
+			// Make sure that the formMessages div has the 'error' className.
+			$(formMessages).removeclassName('success');
+			$(formMessages).addclassName('error');
 
 			// Set the message text.
 			if (data.responseText !== '') {
