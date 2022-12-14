@@ -1,8 +1,11 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
+
+
 const AboutNaveBarHeader = () => {
     return (
         <>
+       
         {/* <!-- HEADER AREA START (header-3) --> */}
     <header className="ltn__header-area ltn__header-3">       
         {/* <!-- ltn__header-top-area start --> */}
@@ -141,7 +144,8 @@ const AboutNaveBarHeader = () => {
                                                 <ul>
                                                 <li><NavLink to="/login">Sign in</NavLink></li>
                                                 <li><NavLink to="/register">Register</NavLink></li>
-                                                    <li><a href="account.html">My Account</a></li>
+                                                <li><NavLink to="/accountdetails">My Account</NavLink></li>
+                                                    {/* <li><a href="account.html">My Account</a></li> */}
                                                     <li><a href="wishlist.html">Wishlist</a></li>
                                                 </ul>
                                             </li>

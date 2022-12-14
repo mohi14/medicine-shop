@@ -71,7 +71,8 @@ const LeatestBlogs = () => {
           <div className="col-lg-12">
                     <div className="ltn__blog-item ltn__blog-item-3">
                         <div className="ltn__blog-img">
-                            <a href="blog-details.html"><img src={leatestBloge.imageUrl} alt="#"/></a>
+                            {/* <a href="blog-details.html"><img src={leatestBloge.imageUrl} alt="#"/></a> */}
+                            <img src={leatestBloge.imageUrl} alt="#"/>
                         </div>
                         <div className="ltn__blog-brief">
                             <div className="ltn__blog-meta">
@@ -92,7 +93,8 @@ const LeatestBlogs = () => {
                                     </ul>
                                 </div>
                                 <div className="ltn__blog-btn">
-                                    <a href="blog-details.html">Read more</a>
+                                    {/* <a href="blog-details.html">Read more</a> */}
+
                                 </div>
                             </div>
                         </div>

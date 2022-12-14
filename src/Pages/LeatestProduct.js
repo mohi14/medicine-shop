@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const LeatestProduct = () => {
     const [leatestProducts, setLeatestProducts] = useState([]);
-
+console.log(leatestProducts)
    
     useEffect(() =>{
         fetch("ProductData.json")
@@ -24,10 +24,12 @@ const LeatestProduct = () => {
             </div>
             <div className="row ltn__tab-product-slider-one-active--- slick-arrow-1">
                 {/* <!-- ltn__product-item --> */}
-{leatestProducts.map(leatestProduct => (<div className="col-lg-3 col-md-4 col-sm-6 col-6">
+      {leatestProducts.map(leatestProduct => (<div className="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div className="ltn__product-item ltn__product-item-3 text-left">
                         <div className="product-img">
-                            <NavLink to="/ProductDetails"><img src={leatestProduct.imageUrl}alt="#"/></NavLink >
+                            {/* <NavLink to="/ProductDetails"><img src={leatestProduct.imageUrl}alt="#"/></NavLink > */}
+
+                            <a href={`/ProductDetails/${leatestProduct?.productID}`}><img src={leatestProduct.imageUrl} alt="#"/></a>
                             <div className="product-badge">
                                 <ul>
                                     {/* <li className="sale-badge">New</li> */}
@@ -62,7 +64,7 @@ const LeatestProduct = () => {
                                     <li><a href="#"><i className="far fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <h2 className="product-title"><a href="product-details.html">{leatestProduct.productName}</a></h2>
+                            <h2 className="product-title"><a href={`/ProductDetails/${leatestProduct?.productID}`}>{leatestProduct.productName}</a></h2>
                             <div className="product-price">
                                 <span>${leatestProduct.productPrice}</span>
                                 <del>${leatestProduct.productPreviousPrice}</del>

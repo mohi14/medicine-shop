@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Product = () => {
     const [products, setProducts] = useState([]);
@@ -15,6 +16,8 @@ const Product = () => {
         {/* <!-- PRODUCT AREA START (product-item-3) --> */}
     <div className="ltn__product-area ltn__product-gutter  no-product-ratting pt-85 pb-70">
         <div className="container">
+            
+           
             <div className="row">
                 <div className="col-lg-12">
                     <div className="section-title-area ltn__section-title-2 text-center">
@@ -28,14 +31,14 @@ const Product = () => {
                         <div className="col-lg-12 col-sm-6">
                             <div className="ltn__banner-item">
                                 <div className="ltn__banner-img">
-                                    <a href="shop.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/banner/11.jpg" alt="Banner Image"/></a>
+                                <NavLink to="/shopgrid"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/banner/11.jpg" alt="Banner Image"/></NavLink>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-12 col-sm-6">
                             <div className="ltn__banner-item">
                                 <div className="ltn__banner-img">
-                                    <a href="shop.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/banner/12.jpg" alt="Banner Image"/></a>
+                                <NavLink to="/shopgrid"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/banner/12.jpg" alt="Banner Image"/></NavLink>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +56,7 @@ const Product = () => {
     <div className="ltn__product-item ltn__product-item-2 text-left">
 
         <div className="product-img">
-            <a href="product-details.html"><img src={product.imageUrl} alt="#"/></a>
+            <NavLink to={`/ProductDetails/${product?.productID}`}><img src={product.imageUrl} alt="#"/></NavLink>
             <div className="product-badge">
                 <ul>
                     {/* <li className="sale-badge">New</li> */}
@@ -88,7 +91,7 @@ const Product = () => {
                     <li><a href="#"><i className="far fa-star"></i></a></li>
                 </ul>
             </div>
-            <h2 className="product-title"><a href="product-details.html">{product.productName}</a></h2>
+            <h2 className="product-title"><NavLink to={`/ProductDetails/${product.productID}`}>{product.productName}</NavLink></h2>
             <div className="product-price">
                 <span>${product.productPrice}</span>
                 <del>${product.productPreviousPrice}</del>

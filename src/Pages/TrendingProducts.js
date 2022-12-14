@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const TrendingProducts = () => {
     const [trendingProducts, settrendingProducts] = useState([]);
@@ -23,10 +24,10 @@ const TrendingProducts = () => {
             </div>
             <div className="row ltn__tab-product-slider-one-active--- slick-arrow-1">
                 {/* <!-- ltn__product-item --> */}
-{trendingProducts.map(trendingProduct => (<div className="col-lg-3 col-md-4 col-sm-6 col-6">
+        {trendingProducts.map(trendingProduct => (<div className="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div className="ltn__product-item ltn__product-item-3 text-center">
                         <div className="product-img">
-                            <a href="product-details.html"><img src={trendingProduct.imageUrl}alt="#"/></a>
+                            <NavLink to={`/ProductDetails/${trendingProduct?.productID}`}><img src={trendingProduct.imageUrl}alt="#"/></NavLink>
                             <div className="product-badge">
                                 <ul>
                                     {/* <li className="sale-badge">New</li> */}
@@ -61,7 +62,7 @@ const TrendingProducts = () => {
                                     <li><a href="#"><i className="far fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <h2 className="product-title"><a href="product-details.html">{trendingProduct.productName}</a></h2>
+                            <h2 className="product-title"><NavLink to={`/ProductDetails/${trendingProduct?.productID}`}>{trendingProduct.productName}</NavLink></h2>
                             <div className="product-price">
                                 <span>${trendingProduct.productPrice}</span>
                                 <del>${trendingProduct.productPreviousPrice}</del>

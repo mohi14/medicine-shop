@@ -6,17 +6,21 @@ const AccountDetails = () => {
 
     const [file, setFile] = useState();  
 
-     localStorage.setItem('file', JSON.stringify(file));
+     
      
     function handleChange(e) {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
+    console.log(e.target.files[0]);
+    
+    // setFile(URL.createObjectURL(e.target.files[0]));
+   const a =  localStorage.setItem('fileVimage', (e.target.files[0]));
+
+    
   };
 
     return (
         <>
        <AboutNaveBarHeader></AboutNaveBarHeader>
-       <img src={file} style={{width:"200px", borderRadius: "50%"}}/>
+      
 
             
 
@@ -202,6 +206,7 @@ const AccountDetails = () => {
                                                             <div className="col-md-6">
                                                              <label>Add Profile Image:</label>
                                                              <input type="file" onChange={handleChange} name="file"/>
+                                                             {/* <img src={file} style={{width:"200px", borderRadius: "0%"}}/> */}
                                                             </div>
 
                                                         </div>

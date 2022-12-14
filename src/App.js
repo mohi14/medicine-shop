@@ -40,7 +40,7 @@ function App() {
     {/* navbar contact */}
 
   {/* Product Details Show */}
-  <Route path="/ProductDetails" element={<ProductDetailsShowById></ProductDetailsShowById>}/>
+  <Route path="/ProductDetails/:id" element={<ProductDetailsShowById></ProductDetailsShowById>}/>
   {/* Product Details Show */}
 
 

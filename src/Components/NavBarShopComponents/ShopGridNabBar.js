@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import AboutNavBarFooter from '../../SharedPages/AboutNavBarFooter';
 import AboutNaveBarHeader from '../../SharedPages/AboutNaveBarHeader';
 
@@ -85,7 +86,7 @@ const ShopGridNabBar = () => {
     products.map(product =>( <div className="col-xl-3 col-lg-4 col-sm-6 col-6">
     <div className="ltn__product-item ltn__product-item-3 text-center">
         <div className="product-img">
-            <a href="product-details.html"><img src={product.imageUrl} alt="#"/></a>
+            <NavLink  to={`/ProductDetails/${product?.productID}`}><img src={product.imageUrl} alt="#"/></NavLink >
             <div className="product-badge">
                 <ul>
                     {/* <li className="sale-badge">New</li> */}
@@ -120,7 +121,7 @@ const ShopGridNabBar = () => {
                     <li><a href="#"><i className="far fa-star"></i></a></li>
                 </ul>
             </div>
-            <h2 className="product-title"><a href="product-details.html">{product.productName}</a></h2>
+            <h2 className="product-title"><NavLink to={`/ProductDetails/${product?.productID}`}>{product.productName}</NavLink></h2>
             <div className="product-price">
                 <span>${product.productPrice}</span>
                 <del>${product.productPreviousPrice}</del>

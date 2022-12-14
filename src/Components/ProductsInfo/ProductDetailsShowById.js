@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AboutNavBarFooter from '../../SharedPages/AboutNavBarFooter';
 import AboutNaveBarHeader from '../../SharedPages/AboutNaveBarHeader';
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Slider from "react-slick";
 
 const ProductDetailsShowById = () => {
+
+    const {id} = useParams()
+
+    const [leatestProducts, setLeatestProducts] = useState([]);
+    const [singleProduct, setSingleProduct] = useState([]);
+    console.log(singleProduct)
+       
+        useEffect(() =>{
+            fetch("/ProductData.json")
+            .then((res) => res.json())
+            .then(data => setLeatestProducts(data))
+        },[])
+
+        useEffect(() =>{
+            
+            leatestProducts?.map(leatestProduct => (
+                 leatestProduct?.productID == id ? setSingleProduct(leatestProduct) : <></>
+                
+            ))
+        })
 
     const settings = {  
         infinite: true,
@@ -122,7 +142,7 @@ const ProductDetailsShowById = () => {
                                     </div> */}
                                     <div className="ltn__shop-details-small-img slick-arrow-2">
                                         <div className="single-small-img">
-                                            <img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/1.png" alt="Image"/>
+                                            <img src={singleProduct.imageUrl} alt="Image"/>
                                         </div>
                                         
                                     </div>
@@ -143,10 +163,10 @@ const ProductDetailsShowById = () => {
                                             <li className="review-total"> <a href="#"> ( 95 Reviews )</a></li>
                                         </ul>
                                     </div>
-                                    <h3>Hand Sanitizer</h3>
+                                    <h3>{singleProduct.productName}</h3>
                                     <div className="product-price">
-                                        <span>$49.00</span>
-                                        <del>$65.00</del>
+                                        <span>{singleProduct.productPrice}</span>
+                                        <del>{singleProduct.productPreviousPrice}</del>
                                     </div>
                                     <div className="modal-product-meta ltn__product-details-menu-1">
                                         <ul>
@@ -359,10 +379,11 @@ const ProductDetailsShowById = () => {
                         <div className="widget ltn__top-rated-product-widget">
                             <h4 className="ltn__widget-title ltn__widget-title-border">Top Rated Product</h4>
                             <ul>
-                                <li>
+                                
+                                {leatestProducts.slice(0, 3).map( leatestProductSingle =>(<li>
                                     <div className="top-rated-product-item clearfix">
                                         <div className="top-rated-product-img">
-                                            <a href="product-details.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/1.png" alt="#"/></a>
+                                            <NavLink to={`/ProductDetails/${leatestProductSingle?.productID}`}><img src={leatestProductSingle.imageUrl} alt="#"/></NavLink>
                                         </div>
                                         <div className="top-rated-product-info">
                                             <div className="product-ratting">
@@ -374,65 +395,25 @@ const ProductDetailsShowById = () => {
                                                     <li><a href="#"><i className="fas fa-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h6><a href="product-details.html">Mixel Solid Seat Cover</a></h6>
+                                            <h6><a href={`/ProductDetails/${leatestProductSingle?.productID}`}>{leatestProductSingle.productName}</a></h6>
                                             <div className="product-price">
-                                                <span>$49.00</span>
-                                                <del>$65.00</del>
+                                                <span>{leatestProductSingle.productPrice}</span>
+                                                <del>{leatestProductSingle.productPreviousPrice}</del>
                                             </div>
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div className="top-rated-product-item clearfix">
-                                        <div className="top-rated-product-img">
-                                            <a href="product-details.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/2.png" alt="#"/></a>
-                                        </div>
-                                        <div className="top-rated-product-info">
-                                            <div className="product-ratting">
-                                                <ul>
-                                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <h6><a href="product-details.html">Thermometer Gun</a></h6>
-                                            <div className="product-price">
-                                                <span>$49.00</span>
-                                                <del>$65.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div className="top-rated-product-item clearfix">
-                                        <div className="top-rated-product-img">
-                                            <a href="product-details.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/3.png" alt="#"/></a>
-                                        </div>
-                                        <div className="top-rated-product-info">
-                                            <div className="product-ratting">
-                                                <ul>
-                                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                                    <li><a href="#"><i className="fas fa-star-half-alt"></i></a></li>
-                                                    <li><a href="#"><i className="far fa-star"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <h6><a href="product-details.html">Coil Spring Conversion</a></h6>
-                                            <div className="product-price">
-                                                <span>$49.00</span>
-                                                <del>$65.00</del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                </li> )
+
+                                )}
+
+
+                                
+                                
                             </ul>
                         </div>
                         {/* <!-- Banner Widget --> */}
                         <div className="widget ltn__banner-widget">
-                            <a href="shop.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/banner/2.jpg" alt="#"/></a>
+                        <NavLink to="/shopgrid"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/banner/2.jpg" alt="Banner Image"/></NavLink>
                         </div>
                     </aside>
                 </div>
@@ -458,57 +439,12 @@ const ProductDetailsShowById = () => {
                 {/* <!-- ltn__product-item --> */}
 
                 <Slider {...settings}>
-               <div> <div className="col-lg-12">
-                    <div className="ltn__product-item ltn__product-item-3 text-center">
-                        <div className="product-img">
-                            <a href="product-details.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/7.png" alt="#"/></a>
-                            <div className="product-badge">
-                                <ul>
-                                    <li className="sale-badge">New</li>
-                                </ul>
-                            </div>
-                            <div className="product-hover-action">
-                                <ul>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i className="far fa-eye"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i className="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                            <i className="far fa-heart"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="product-info">
-                            <div className="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i className="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 className="product-title"><a href="product-details.html">Digital Stethoscope</a></h2>
-                            <div className="product-price">
-                                <span>$149.00</span>
-                                <del>$162.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div></div>
+            
                 {/* <!-- ltn__product-item --> */}
-                <div className="col-lg-12">
+               {leatestProducts.map( leatestProductSingle =>(<div className="col-lg-12">
                     <div className="ltn__product-item ltn__product-item-3 text-center">
                         <div className="product-img">
-                            <a href="product-details.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/4.png" alt="#"/></a>
+                            <NavLink to={`/ProductDetails/${leatestProductSingle?.productID}`}><img src={leatestProductSingle.imageUrl} alt="#"/></NavLink>
                             <div className="product-badge">
                                 <ul>
                                     <li className="sale-badge">New</li>
@@ -543,202 +479,17 @@ const ProductDetailsShowById = () => {
                                     <li><a href="#"><i className="far fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <h2 className="product-title"><a href="product-details.html">Thermometer Gun</a></h2>
+                            <h2 className="product-title"><NavLink to={`/ProductDetails/${leatestProductSingle?.productID}`}>{leatestProductSingle.productName}</NavLink></h2>
                             <div className="product-price">
-                                <span>$62.00</span>
-                                <del>$85.00</del>
+                                <span>{leatestProductSingle.productPrice}</span>
+                                <del>{leatestProductSingle.productPreviousPrice}</del>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* <!-- ltn__product-item --> */}
-                <div className="col-lg-12">
-                    <div className="ltn__product-item ltn__product-item-3 text-center">
-                        <div className="product-img">
-                            <a href="product-details.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/5.png" alt="#"/></a>
-                            <div className="product-badge">
-                                <ul>
-                                    <li className="sale-badge">New</li>
-                                </ul>
-                            </div>
-                            <div className="product-hover-action">
-                                <ul>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i className="far fa-eye"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i className="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                            <i className="far fa-heart"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="product-info">
-                            <div className="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i className="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 className="product-title"><a href="product-details.html">Cosmetic Containers</a></h2>
-                            <div className="product-price">
-                                <span>$75.00</span>
-                                <del>$92.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* <!-- ltn__product-item --> */}
-                <div className="col-lg-12">
-                    <div className="ltn__product-item ltn__product-item-3 text-center">
-                        <div className="product-img">
-                            <a href="product-details.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/2.png" alt="#"/></a>
-                            <div className="product-badge">
-                                <ul>
-                                    <li className="sale-badge">New</li>
-                                </ul>
-                            </div>
-                            <div className="product-hover-action">
-                                <ul>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i className="far fa-eye"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i className="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                            <i className="far fa-heart"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="product-info">
-                            <div className="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i className="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 className="product-title"><a href="product-details.html">Cosmetic Containers</a></h2>
-                            <div className="product-price">
-                                <span>$78.00</span>
-                                <del>$85.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* <!-- ltn__product-item --> */}
-                <div className="col-lg-12">
-                    <div className="ltn__product-item ltn__product-item-3 text-center">
-                        <div className="product-img">
-                            <a href="product-details.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/3.png" alt="#"/></a>
-                            <div className="product-badge">
-                                <ul>
-                                    <li className="sale-badge">New</li>
-                                </ul>
-                            </div>
-                            <div className="product-hover-action">
-                                <ul>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i className="far fa-eye"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i className="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                            <i className="far fa-heart"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="product-info">
-                            <div className="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i className="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 className="product-title"><a href="product-details.html">Blue Hand Gloves</a></h2>
-                            <div className="product-price">
-                                <span>$150.00</span>
-                                <del>$180.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* <!-- ltn__product-item --> */}
-                <div className="col-lg-12">
-                    <div className="ltn__product-item ltn__product-item-3 text-center">
-                        <div className="product-img">
-                            <a href="product-details.html"><img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/7.png" alt="#"/></a>
-                            <div className="product-badge">
-                                <ul>
-                                    <li className="sale-badge">New</li>
-                                </ul>
-                            </div>
-                            <div className="product-hover-action">
-                                <ul>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i className="far fa-eye"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i className="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                            <i className="far fa-heart"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="product-info">
-                            <div className="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i className="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i className="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 className="product-title"><a href="product-details.html">Thermometer Gun</a></h2>
-                            <div className="product-price">
-                                <span>$150.00</span>
-                                <del>$180.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+)) 
+               }
+               
                 {/* <!--  --> */}
                 </Slider>
             </div>
