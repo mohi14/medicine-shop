@@ -1,15 +1,25 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+import { removeFromCart } from "../features/cart/cartSlice";
 
 const Header = () => {
   const { products } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   const totalProduct = products.reduce(
     (total, item) => total + item.cartQuantity,
     0
   );
-  console.log(totalProduct, "ttttt");
+
+  const subTotal = products.reduce(
+    (total, item) => total + item.productPrice * item.cartQuantity,
+    0
+  );
+
+  const handleRemoveItem = (id) => {
+    dispatch(removeFromCart(id));
+  };
   return (
     <>
       <div className="body-wrapper">
@@ -646,84 +656,34 @@ const Header = () => {
                 ></button>
               </div>
               <div className="mini-cart-product-area ltn__scrollbar">
-                <div className="mini-cart-item clearfix">
-                  <div className="mini-cart-img">
-                    <a href="#">
-                      <img
-                        src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/1.png"
-                        alt="Image"
-                      />
-                    </a>
-                    <span className="mini-cart-item-delete">
-                      <i className="icon-cancel"></i>
-                    </span>
+                {products?.map((product) => (
+                  <div className="mini-cart-item clearfix">
+                    <div className="mini-cart-img">
+                      <a href="#">
+                        <img src={product?.imageUrl} alt="Image" />
+                      </a>
+                      <span
+                        className="mini-cart-item-delete"
+                        onClick={() => handleRemoveItem(product?.productID)}
+                      >
+                        <i class="fa-solid fa-xmark"></i>
+                      </span>
+                    </div>
+                    <div className="mini-cart-info">
+                      <h6>
+                        <a href="#">{product?.productName}</a>
+                      </h6>
+                      <span className="mini-cart-quantity">
+                        {product?.cartQuantity} x ${product?.productPrice}
+                      </span>
+                    </div>
                   </div>
-                  <div className="mini-cart-info">
-                    <h6>
-                      <a href="#">Antiseptic Spray</a>
-                    </h6>
-                    <span className="mini-cart-quantity">1 x $65.00</span>
-                  </div>
-                </div>
-                <div className="mini-cart-item clearfix">
-                  <div className="mini-cart-img">
-                    <a href="#">
-                      <img src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/2.png" />
-                    </a>
-                    <span className="mini-cart-item-delete">
-                      <i className="icon-cancel"></i>
-                    </span>
-                  </div>
-                  <div className="mini-cart-info">
-                    <h6>
-                      <a href="#">Digital Stethoscope</a>
-                    </h6>
-                    <span className="mini-cart-quantity">1 x $85.00</span>
-                  </div>
-                </div>
-                <div className="mini-cart-item clearfix">
-                  <div className="mini-cart-img">
-                    <a href="#">
-                      <img
-                        src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/3.png"
-                        alt="Image"
-                      />
-                    </a>
-                    <span className="mini-cart-item-delete">
-                      <i className="icon-cancel"></i>
-                    </span>
-                  </div>
-                  <div className="mini-cart-info">
-                    <h6>
-                      <a href="#">Cosmetic Containers</a>
-                    </h6>
-                    <span className="mini-cart-quantity">1 x $92.00</span>
-                  </div>
-                </div>
-                <div className="mini-cart-item clearfix">
-                  <div className="mini-cart-img">
-                    <a href="#">
-                      <img
-                        src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/4.png"
-                        alt="Image"
-                      />
-                    </a>
-                    <span className="mini-cart-item-delete">
-                      <i className="icon-cancel"></i>
-                    </span>
-                  </div>
-                  <div className="mini-cart-info">
-                    <h6>
-                      <a href="#">Thermometer Gun</a>
-                    </h6>
-                    <span className="mini-cart-quantity">1 x $68.00</span>
-                  </div>
-                </div>
+                ))}
               </div>
               <div className="mini-cart-footer">
                 <div className="mini-cart-sub-total">
                   <h5>
-                    Subtotal: <span>$310.00</span>
+                    Subtotal: <span>${subTotal}</span>
                   </h5>
                 </div>
                 <div className="btn-wrapper">
