@@ -1,61 +1,61 @@
-import Home from './Pages/Home';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import AboutNavBar from './Components/NavBarAboutComponents/AboutNavBar';
-import ServicesNavbar from './Components/NavBarAboutComponents/ServicesNavbar';
+import Home from "./Pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AboutNavBar from "./Components/NavBarAboutComponents/AboutNavBar";
+import ServicesNavbar from "./Components/NavBarAboutComponents/ServicesNavbar";
 
-import ShopGridNabBar from './Components/NavBarShopComponents/ShopGridNabBar';
-import Login from './SharedPages/Login';
-import Register from './SharedPages/Register';
-import ContactNabVar from './Components/NabBarContactComponent/ContactNabVar';
-import ProductDetailsShowById from './Components/ProductsInfo/ProductDetailsShowById';
-import ScrollTOTop from './SharedPages/ScrollTOTop';
-import AccountDetails from './SharedPages/AccountDetails';
+import ShopGridNabBar from "./Components/NavBarShopComponents/ShopGridNabBar";
+import Login from "./SharedPages/Login";
+import Register from "./SharedPages/Register";
+import ContactNabVar from "./Components/NabBarContactComponent/ContactNabVar";
+import ProductDetailsShowById from "./Components/ProductsInfo/ProductDetailsShowById";
+import ScrollTOTop from "./SharedPages/ScrollTOTop";
+import AccountDetails from "./SharedPages/AccountDetails";
+import Product from "./Pages/Product";
 
 function App() {
-  
-  
-  
   return (
-  
-<BrowserRouter>
-<Routes>
-  <Route path="/" element={<Home/>}></Route>
-  {/* navbar about section */}
-  <Route path="/about" element={<AboutNavBar></AboutNavBar>}/> 
-  <Route path="/service" element={<ServicesNavbar></ServicesNavbar>}/> 
-  
-   {/* navbar about section */}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        {/* navbar about section */}
+        <Route path="/about" element={<AboutNavBar></AboutNavBar>} />
+        <Route path="/service" element={<ServicesNavbar></ServicesNavbar>} />
 
-   {/* nabbar shop section */}
-   <Route path="/shopgrid" element={<ShopGridNabBar></ShopGridNabBar>}/> 
-   {/* nabbar shop section */}
+        {/* navbar about section */}
 
-    {/* navbar contact */}
-    <Route path="/contact" element={<ContactNabVar></ContactNabVar>}/>
-    <Route path="/accountdetails" element={<AccountDetails></AccountDetails>}/>
-    {/* navbar contact */}
+        {/* nabbar shop section */}
+        <Route path="/shopgrid" element={<ShopGridNabBar></ShopGridNabBar>} />
+        {/* nabbar shop section */}
 
-  {/* Product Details Show */}
-  <Route path="/ProductDetails/:id" element={<ProductDetailsShowById></ProductDetailsShowById>}/>
-  {/* Product Details Show */}
+        {/* navbar contact */}
+        <Route path="/contact" element={<ContactNabVar></ContactNabVar>} />
+        <Route
+          path="/accountdetails"
+          element={<AccountDetails></AccountDetails>}
+        />
+        {/* navbar contact */}
 
+        <Route path="/products" element={<Product />} />
 
-   {/* Login and register */}
+        {/* Product Details Show */}
+        <Route
+          path="/ProductDetails/:id"
+          element={<ProductDetailsShowById></ProductDetailsShowById>}
+        />
+        {/* Product Details Show */}
 
-   <Route path="/login" element={<Login></Login>}/> 
-   <Route path="/register" element={<Register></Register>}/> 
-   {/* Login and register */}
+        {/* Login and register */}
 
+        <Route path="/login" element={<Login></Login>} />
+        <Route path="/register" element={<Register></Register>} />
+        {/* Login and register */}
+      </Routes>
 
-</Routes>
-
-<ScrollTOTop></ScrollTOTop>
-</BrowserRouter>
+      <ScrollTOTop></ScrollTOTop>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+// #6d83df

@@ -20,7 +20,7 @@ const ScrollTOTop = () => {
           fontSize: '20px',
           bottom: '40px',
           right: '40px',
-          backgroundColor: '#0C9',
+          backgroundColor: '#6d83df',
           color: '#fff',
           textAlign: 'center',
         }}
