@@ -4,6 +4,62 @@ import AboutNaveBarHeader from "../SharedPages/AboutNaveBarHeader";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cart/cartSlice";
 
+const products = [
+  {
+    productID: 1,
+    productName: "Antiseptic Spray",
+    productPrice: 32.0,
+    productPreviousPrice: 46.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/1.png",
+  },
+
+  {
+    productID: 2,
+    productName: "Digital Stethoscope",
+    productPrice: 25.0,
+    productPreviousPrice: 35.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/2.png",
+  },
+
+  {
+    productID: 3,
+    productName: "Cosmetic Containers",
+    productPrice: 75.0,
+    productPreviousPrice: 92.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/3.png",
+  },
+
+  {
+    productID: 4,
+    productName: "Cosmetic Containers",
+    productPrice: 78.0,
+    productPreviousPrice: 85.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/4.png",
+  },
+
+  {
+    productID: 5,
+    productName: "Blue Hand Gloves",
+    productPrice: 150.0,
+    productPreviousPrice: 180.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/5.png",
+  },
+
+  {
+    productID: 6,
+    productName: "Thermometer Gun",
+    productPrice: 150.0,
+    productPreviousPrice: 180.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/6.png",
+  },
+];
+
 const Product = () => {
   // const [products, setProducts] = useState([]);
 
@@ -15,65 +71,13 @@ const Product = () => {
 
   const dispatch = useDispatch();
 
-  const products = [
-    {
-      productID: 1,
-      productName: "Antiseptic Spray",
-      productPrice: 32.0,
-      productPreviousPrice: 46.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/1.png",
-    },
-
-    {
-      productID: 2,
-      productName: "Digital Stethoscope",
-      productPrice: 25.0,
-      productPreviousPrice: 35.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/2.png",
-    },
-
-    {
-      productID: 3,
-      productName: "Cosmetic Containers",
-      productPrice: 75.0,
-      productPreviousPrice: 92.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/3.png",
-    },
-
-    {
-      productID: 4,
-      productName: "Cosmetic Containers",
-      productPrice: 78.0,
-      productPreviousPrice: 85.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/4.png",
-    },
-
-    {
-      productID: 5,
-      productName: "Blue Hand Gloves",
-      productPrice: 150.0,
-      productPreviousPrice: 180.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/5.png",
-    },
-
-    {
-      productID: 6,
-      productName: "Thermometer Gun",
-      productPrice: 150.0,
-      productPreviousPrice: 180.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/6.png",
-    },
-  ];
+  const [selectedProduct, setSelectedProduct] = useState("");
 
   const handleAddtoCart = (product) => {
     dispatch(addToCart(product));
   };
+
+  console.log(selectedProduct, "seafaf");
 
   return (
     <>
@@ -135,10 +139,12 @@ const Product = () => {
                           <ul>
                             <li>
                               <a
+                                onClick={() => setSelectedProduct(product)}
+                                type="button"
+                                data-bs-target="#exampleModal"
                                 href="#"
                                 title="Quick View"
                                 data-bs-toggle="modal"
-                                data-bs-target="#quick_view_modal"
                               >
                                 <i className="far fa-eye"></i>
                               </a>
@@ -215,6 +221,47 @@ const Product = () => {
         </div>
       </div>
       {/* <!-- PRODUCT AREA END --> */}
+      <div
+        class="modal fade "
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content p-3">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <img src={selectedProduct?.imageUrl} alt="" />
+              <div className="product-price mt-3">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  {selectedProduct?.productName}
+                </h1>
+                <span>Price: ${selectedProduct?.productPrice}</span>
+              </div>
+            </div>
+            {/* <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div> */}
+          </div>
+        </div>
+      </div>
     </>
   );
 };

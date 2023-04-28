@@ -3,6 +3,63 @@ import AboutNavBarFooter from "../../SharedPages/AboutNavBarFooter";
 import AboutNaveBarHeader from "../../SharedPages/AboutNaveBarHeader";
 import { Link, NavLink, useParams } from "react-router-dom";
 import Slider from "react-slick";
+import ReactImageMagnify from "react-image-magnify";
+
+const leatestProducts = [
+  {
+    productID: 1,
+    productName: "Antiseptic Spray",
+    productPrice: 32.0,
+    productPreviousPrice: 46.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/1.png",
+  },
+
+  {
+    productID: 2,
+    productName: "Digital Stethoscope",
+    productPrice: 25.0,
+    productPreviousPrice: 35.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/2.png",
+  },
+
+  {
+    productID: 3,
+    productName: "Cosmetic Containers",
+    productPrice: 75.0,
+    productPreviousPrice: 92.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/3.png",
+  },
+
+  {
+    productID: 4,
+    productName: "Cosmetic Containers",
+    productPrice: 78.0,
+    productPreviousPrice: 85.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/4.png",
+  },
+
+  {
+    productID: 5,
+    productName: "Blue Hand Gloves",
+    productPrice: 150.0,
+    productPreviousPrice: 180.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/5.png",
+  },
+
+  {
+    productID: 6,
+    productName: "Thermometer Gun",
+    productPrice: 150.0,
+    productPreviousPrice: 180.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/6.png",
+  },
+];
 
 const ProductDetailsShowById = () => {
   const { id } = useParams();
@@ -16,62 +73,6 @@ const ProductDetailsShowById = () => {
   //     .then((res) => res.json())
   //     .then((data) => setLeatestProducts(data));
   // }, []);
-
-  const leatestProducts = [
-    {
-      productID: 1,
-      productName: "Antiseptic Spray",
-      productPrice: 32.0,
-      productPreviousPrice: 46.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/1.png",
-    },
-
-    {
-      productID: 2,
-      productName: "Digital Stethoscope",
-      productPrice: 25.0,
-      productPreviousPrice: 35.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/2.png",
-    },
-
-    {
-      productID: 3,
-      productName: "Cosmetic Containers",
-      productPrice: 75.0,
-      productPreviousPrice: 92.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/3.png",
-    },
-
-    {
-      productID: 4,
-      productName: "Cosmetic Containers",
-      productPrice: 78.0,
-      productPreviousPrice: 85.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/4.png",
-    },
-
-    {
-      productID: 5,
-      productName: "Blue Hand Gloves",
-      productPrice: 150.0,
-      productPreviousPrice: 180.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/5.png",
-    },
-
-    {
-      productID: 6,
-      productName: "Thermometer Gun",
-      productPrice: 150.0,
-      productPreviousPrice: 180.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/6.png",
-    },
-  ];
 
   useEffect(() => {
     leatestProducts?.map((leatestProduct) =>
@@ -121,7 +122,7 @@ const ProductDetailsShowById = () => {
   };
   return (
     <>
-      <AboutNaveBarHeader></AboutNaveBarHeader>
+      {/* <AboutNaveBarHeader></AboutNaveBarHeader> */}
       {/*  <!-- BREADCRUMB AREA START --> */}
       <div
         className="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "
@@ -167,6 +168,20 @@ const ProductDetailsShowById = () => {
             <div className="col-lg-8 col-md-12 ">
               <div className="ltn__shop-details-inner mb-60">
                 <div className="row">
+                  <ReactImageMagnify
+                    {...{
+                      smallImage: {
+                        alt: "Wristwatch by Ted Baker London",
+                        isFluidWidth: true,
+                        src: singleProduct.imageUrl,
+                      },
+                      largeImage: {
+                        src: singleProduct.imageUrl,
+                        width: 1200,
+                        height: 1800,
+                      },
+                    }}
+                  />
                   <div
                     className="col-md-6 image-box "
                     onmousemove="zoom(event)"
@@ -209,11 +224,25 @@ const ProductDetailsShowById = () => {
                                             </a>
                                         </div>
                                     </div> */}
-                      <div className="ltn__shop-details-small-img slick-arrow-2">
-                        <div className="single-small-img">
-                          <img src={singleProduct.imageUrl} alt="Image" />
-                        </div>
-                      </div>
+                      {/* <div className="ltn__shop-details-small-img slick-arrow-2">
+                        <div className="single-small-img"> */}
+                      {/* <img src={singleProduct.imageUrl} alt="Image" /> */}
+                      {/* <ReactImageMagnify
+                        {...{
+                          smallImage: {
+                            alt: "Wristwatch by Ted Baker London",
+                            isFluidWidth: true,
+                            src: singleProduct.imageUrl,
+                          },
+                          largeImage: {
+                            src: watchImg1200,
+                            width: 1200,
+                            height: 1800,
+                          },
+                        }}
+                      /> */}
+                      {/* </div>
+                      </div> */}
                     </div>
                   </div>
 
