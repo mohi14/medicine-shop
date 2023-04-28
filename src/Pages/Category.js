@@ -2,12 +2,57 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 const Category = () => {
-  const [categorys, setCategory] = useState([]);
-  useEffect(() => {
-    fetch("categoryData.json")
-      .then((res) => res.json())
-      .then((data) => setCategory(data));
-  }, []);
+  // const [categorys, setCategory] = useState([]);
+  // useEffect(() => {
+  //   fetch("categoryData.json")
+  //     .then((res) => res.json())
+  //     .then((data) => setCategory(data));
+  // }, []);
+
+  const categorys = [
+    {
+      categoryID: 1,
+      categoryName: "Best Deals",
+      imageUrl: "fas fa-notes-medical",
+    },
+
+    {
+      categoryID: 2,
+      categoryName: "Germs Pads",
+      imageUrl: "fas fa-box-tissue",
+    },
+
+    {
+      categoryID: 3,
+      categoryName: "Accessories",
+      imageUrl: "fas fa-pump-medical",
+    },
+
+    { categoryID: 4, categoryName: "Medicine Cap", imageUrl: "fas fa-bong" },
+
+    { categoryID: 5, categoryName: "Dental Item", imageUrl: "fas fa-tooth" },
+
+    {
+      categoryID: 6,
+      categoryName: "All Products",
+      imageUrl: "fas fa-microscope",
+    },
+
+    { categoryID: 7, categoryName: "Germs Pads", imageUrl: "fas fa-syringe" },
+
+    {
+      categoryID: 8,
+      categoryName: "Accessories",
+      imageUrl: "fas fa-hand-holding-medical",
+    },
+
+    {
+      categoryID: 9,
+      categoryName: "Medicine Cap",
+      imageUrl: "fas fa-procedures",
+    },
+  ];
+
   const settings = {
     infinite: true,
     arrows: false,

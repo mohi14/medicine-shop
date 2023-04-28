@@ -2,13 +2,69 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const TrendingProducts = () => {
-  const [trendingProducts, settrendingProducts] = useState([]);
+  // const [trendingProducts, settrendingProducts] = useState([]);
 
-  useEffect(() => {
-    fetch("ProductData.json")
-      .then((res) => res.json())
-      .then((data) => settrendingProducts(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("ProductData.json")
+  //     .then((res) => res.json())
+  //     .then((data) => settrendingProducts(data));
+  // }, []);
+
+  const trendingProducts = [
+    {
+      productID: 1,
+      productName: "Antiseptic Spray",
+      productPrice: 32.0,
+      productPreviousPrice: 46.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/1.png",
+    },
+
+    {
+      productID: 2,
+      productName: "Digital Stethoscope",
+      productPrice: 25.0,
+      productPreviousPrice: 35.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/2.png",
+    },
+
+    {
+      productID: 3,
+      productName: "Cosmetic Containers",
+      productPrice: 75.0,
+      productPreviousPrice: 92.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/3.png",
+    },
+
+    {
+      productID: 4,
+      productName: "Cosmetic Containers",
+      productPrice: 78.0,
+      productPreviousPrice: 85.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/4.png",
+    },
+
+    {
+      productID: 5,
+      productName: "Blue Hand Gloves",
+      productPrice: 150.0,
+      productPreviousPrice: 180.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/5.png",
+    },
+
+    {
+      productID: 6,
+      productName: "Thermometer Gun",
+      productPrice: 150.0,
+      productPreviousPrice: 180.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/6.png",
+    },
+  ];
   return (
     <>
       {/* <!-- PRODUCT AREA START (product-item-3) --> */}

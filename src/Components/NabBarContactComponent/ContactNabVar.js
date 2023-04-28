@@ -5,7 +5,6 @@ import { Link, NavLink } from "react-router-dom";
 const ContactNabVar = () => {
   return (
     <>
-      <AboutNaveBarHeader></AboutNaveBarHeader>
       {/*  <!-- BREADCRUMB AREA START --> */}
       <div
         className="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "
@@ -213,7 +212,6 @@ const ContactNabVar = () => {
         </div>
       </div>
       {/* <!-- CALL TO ACTION END --> */}
-      <AboutNavBarFooter></AboutNavBarFooter>
     </>
   );
 };

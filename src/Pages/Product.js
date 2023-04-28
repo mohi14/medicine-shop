@@ -1,15 +1,79 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import AboutNaveBarHeader from "../SharedPages/AboutNaveBarHeader";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cart/cartSlice";
 
 const Product = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    fetch("ProductData.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("ProductData.json")
+  //     .then((res) => res.json())
+  //     .then((data) => setProducts(data));
+  // }, []);
+
+  const dispatch = useDispatch();
+
+  const products = [
+    {
+      productID: 1,
+      productName: "Antiseptic Spray",
+      productPrice: 32.0,
+      productPreviousPrice: 46.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/1.png",
+    },
+
+    {
+      productID: 2,
+      productName: "Digital Stethoscope",
+      productPrice: 25.0,
+      productPreviousPrice: 35.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/2.png",
+    },
+
+    {
+      productID: 3,
+      productName: "Cosmetic Containers",
+      productPrice: 75.0,
+      productPreviousPrice: 92.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/3.png",
+    },
+
+    {
+      productID: 4,
+      productName: "Cosmetic Containers",
+      productPrice: 78.0,
+      productPreviousPrice: 85.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/4.png",
+    },
+
+    {
+      productID: 5,
+      productName: "Blue Hand Gloves",
+      productPrice: 150.0,
+      productPreviousPrice: 180.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/5.png",
+    },
+
+    {
+      productID: 6,
+      productName: "Thermometer Gun",
+      productPrice: 150.0,
+      productPreviousPrice: 180.0,
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/6.png",
+    },
+  ];
+
+  const handleAddtoCart = (product) => {
+    dispatch(addToCart(product));
+  };
 
   return (
     <>
@@ -79,7 +143,7 @@ const Product = () => {
                                 <i className="far fa-eye"></i>
                               </a>
                             </li>
-                            <li>
+                            <li onClick={() => handleAddtoCart(product)}>
                               <a
                                 href="#"
                                 title="Add to Cart"

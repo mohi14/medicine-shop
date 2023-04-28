@@ -7,12 +7,64 @@ import Slider from "react-slick";
 import { Link, NavLink } from "react-router-dom";
 
 const AboutNavBar = () => {
-  const [leatestBloges, setleatestBloge] = useState([]);
-  useEffect(() => {
-    fetch("leatestBloge.json")
-      .then((res) => res.json())
-      .then((data) => setleatestBloge(data));
-  }, []);
+  // const [leatestBloges, setleatestBloge] = useState([]);
+  // useEffect(() => {
+  //   fetch("leatestBloge.json")
+  //     .then((res) => res.json())
+  //     .then((data) => setleatestBloge(data));
+  // }, []);
+
+  const leatestBloges = [
+    {
+      productID: 1,
+      description: "7 home trends that will shape your house in 2021",
+      role: "Admin",
+      title: "Trends",
+      date: "November 11, 2022",
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/blog/1.jpg",
+    },
+
+    {
+      productID: 2,
+      description: "10 Brilliant Ways To Decorate Your Home",
+      role: "Admin",
+      title: "Trends",
+      date: "November 11, 2022",
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/blog/2.jpg",
+    },
+
+    {
+      productID: 3,
+      description: "The Most Inspiring Interior Design Of 2021",
+      role: "Admin",
+      title: "Trends",
+      date: "November 11, 2022",
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/blog/3.jpg",
+    },
+
+    {
+      productID: 4,
+      description: "Recent Commercial Real Estate Transactions",
+      role: "Admin",
+      title: "Trends",
+      date: "November 11, 2022",
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/blog/4.jpg",
+    },
+
+    {
+      productID: 5,
+      description: "10 Brilliant Ways To Decorate Your Home",
+      role: "Admin",
+      title: "Trends",
+      date: "November 11, 2022",
+      imageUrl:
+        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/blog/5.jpg",
+    },
+  ];
 
   const ourExpeExpertDoctors = [
     {
@@ -155,8 +207,6 @@ const AboutNavBar = () => {
     <>
       {/* <!-- Body main wrapper start --> */}
       <div className="body-wrapper">
-        <AboutNaveBarHeader></AboutNaveBarHeader>
-
         {/* <!-- BREADCRUMB AREA START --> */}
         <div
           className="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "
@@ -894,8 +944,6 @@ const AboutNavBar = () => {
           </div>
         </div>
         {/* <!-- CALL TO ACTION END --> */}
-
-        <AboutNavBarFooter></AboutNavBarFooter>
       </div>
       {/* <!-- Body main wrapper end --> */}
     </>

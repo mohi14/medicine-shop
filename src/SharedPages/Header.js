@@ -1,7 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
-const header = () => {
+const Header = () => {
+  const { products } = useSelector((state) => state.cart);
+
+  const totalProduct = products.reduce(
+    (total, item) => total + item.cartQuantity,
+    0
+  );
+  console.log(totalProduct, "ttttt");
   return (
     <>
       <div className="body-wrapper">
@@ -109,7 +117,7 @@ const header = () => {
                 <div className="col">
                   <div className="site-logo-wrap">
                     <div className="site-logo">
-                      <NavLink tO="/">
+                      <NavLink to="/">
                         {/* <img
                           src="https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/logo.png"
                           alt="Logo"
@@ -310,7 +318,7 @@ const header = () => {
                       className="ltn__utilize-toggle"
                     >
                       <i class="fa-solid fa-cart-shopping"></i>
-                      <sup>2</sup>
+                      <sup>{totalProduct > 0 && totalProduct}</sup>
                     </a>
                   </div>
                   {/* <!-- mini-cart -->
@@ -986,4 +994,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;

@@ -11,44 +11,48 @@ import ProductDetailsShowById from "./Components/ProductsInfo/ProductDetailsShow
 import ScrollTOTop from "./SharedPages/ScrollTOTop";
 import AccountDetails from "./SharedPages/AccountDetails";
 import Product from "./Pages/Product";
+import Main from "./Layouts/Main";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        {/* navbar about section */}
-        <Route path="/about" element={<AboutNavBar></AboutNavBar>} />
-        <Route path="/service" element={<ServicesNavbar></ServicesNavbar>} />
+        <Route path="/" element={<Main />}>
+          <Route index element={<Home />}></Route>
 
-        {/* navbar about section */}
+          {/* navbar about section */}
+          <Route path="/about" element={<AboutNavBar></AboutNavBar>} />
+          <Route path="/service" element={<ServicesNavbar></ServicesNavbar>} />
 
-        {/* nabbar shop section */}
-        <Route path="/shopgrid" element={<ShopGridNabBar></ShopGridNabBar>} />
-        {/* nabbar shop section */}
+          {/* navbar about section */}
 
-        {/* navbar contact */}
-        <Route path="/contact" element={<ContactNabVar></ContactNabVar>} />
-        <Route
-          path="/accountdetails"
-          element={<AccountDetails></AccountDetails>}
-        />
-        {/* navbar contact */}
+          {/* nabbar shop section */}
+          <Route path="/shopgrid" element={<ShopGridNabBar></ShopGridNabBar>} />
+          {/* nabbar shop section */}
 
-        <Route path="/products" element={<Product />} />
+          {/* navbar contact */}
+          <Route path="/contact" element={<ContactNabVar></ContactNabVar>} />
+          <Route
+            path="/accountdetails"
+            element={<AccountDetails></AccountDetails>}
+          />
+          {/* navbar contact */}
 
-        {/* Product Details Show */}
-        <Route
-          path="/ProductDetails/:id"
-          element={<ProductDetailsShowById></ProductDetailsShowById>}
-        />
-        {/* Product Details Show */}
+          <Route path="/products" element={<Product />} />
 
-        {/* Login and register */}
+          {/* Product Details Show */}
+          <Route
+            path="/ProductDetails/:id"
+            element={<ProductDetailsShowById></ProductDetailsShowById>}
+          />
+          {/* Product Details Show */}
 
-        <Route path="/login" element={<Login></Login>} />
-        <Route path="/register" element={<Register></Register>} />
-        {/* Login and register */}
+          {/* Login and register */}
+
+          <Route path="/login" element={<Login></Login>} />
+          <Route path="/register" element={<Register></Register>} />
+          {/* Login and register */}
+        </Route>
       </Routes>
 
       <ScrollTOTop></ScrollTOTop>

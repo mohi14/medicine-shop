@@ -17,7 +17,7 @@ import TrendingProducts from "./TrendingProducts";
 const Home = () => {
   return (
     <div className="body-wrapper">
-      <Header></Header>
+      {/* <Header></Header> */}
       <Slider></Slider>
       <Category></Category>
       <About></About>
@@ -30,7 +30,7 @@ const Home = () => {
       <Feature></Feature>
       <LeatestBlogs></LeatestBlogs>
       <Brand></Brand>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 };
