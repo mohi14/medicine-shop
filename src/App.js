@@ -13,6 +13,8 @@ import AccountDetails from "./SharedPages/AccountDetails";
 import Product from "./Pages/Product";
 import Main from "./Layouts/Main";
 import Checkout from "./Pages/Checkout";
+import Cart from "./Pages/Cart";
+import Wishlist from "./Pages/Wishlist";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/about" element={<AboutNavBar></AboutNavBar>} />
           <Route path="/service" element={<ServicesNavbar></ServicesNavbar>} />
           <Route path="/checkout" element={<Checkout></Checkout>} />
+          <Route path="/cart" element={<Cart></Cart>} />
+          <Route path="/wishlist" element={<Wishlist></Wishlist>} />
 
           {/* navbar about section */}
 

@@ -482,7 +482,7 @@ const Header = () => {
                           <a href="wishlist.html">Wishlist</a>
                         </li>
                         <li>
-                          <a href="checkout.html">Checkout</a>
+                          <Link to="/checkout">Checkout</Link>
                         </li>
                         <li>
                           <a href="order-tracking.html">Order Tracking</a>
@@ -655,31 +655,35 @@ const Header = () => {
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="mini-cart-product-area ltn__scrollbar">
-                {products?.map((product) => (
-                  <div className="mini-cart-item clearfix">
-                    <div className="mini-cart-img">
-                      <a href="#">
-                        <img src={product?.imageUrl} alt="Image" />
-                      </a>
-                      <span
-                        className="mini-cart-item-delete"
-                        onClick={() => handleRemoveItem(product?.productID)}
-                      >
-                        <i class="fa-solid fa-xmark"></i>
-                      </span>
+              {products.length > 0 ? (
+                <div className="mini-cart-product-area ltn__scrollbar">
+                  {products?.map((product) => (
+                    <div className="mini-cart-item clearfix">
+                      <div className="mini-cart-img">
+                        <a href="#">
+                          <img src={product?.imageUrl} alt="Image" />
+                        </a>
+                        <span
+                          className="mini-cart-item-delete"
+                          onClick={() => handleRemoveItem(product?.productID)}
+                        >
+                          <i class="fa-solid fa-xmark"></i>
+                        </span>
+                      </div>
+                      <div className="mini-cart-info">
+                        <h6>
+                          <a href="#">{product?.productName}</a>
+                        </h6>
+                        <span className="mini-cart-quantity">
+                          {product?.cartQuantity} x ${product?.productPrice}
+                        </span>
+                      </div>
                     </div>
-                    <div className="mini-cart-info">
-                      <h6>
-                        <a href="#">{product?.productName}</a>
-                      </h6>
-                      <span className="mini-cart-quantity">
-                        {product?.cartQuantity} x ${product?.productPrice}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <div>No Items</div>
+              )}
               <div className="mini-cart-footer">
                 <div className="mini-cart-sub-total">
                   <h5>
@@ -687,12 +691,12 @@ const Header = () => {
                   </h5>
                 </div>
                 <div className="btn-wrapper">
-                  <a href="cart.html" className="theme-btn-1 btn btn-effect-1">
+                  <Link to="/cart" className="theme-btn-1 btn btn-effect-1">
                     View Cart
-                  </a>
-                  <a href="cart.html" className="theme-btn-2 btn btn-effect-2">
+                  </Link>
+                  <Link to="/checkout" className="theme-btn-2 btn btn-effect-2">
                     Checkout
-                  </a>
+                  </Link>
                 </div>
                 <p>Free Shipping on All Orders Over $100!</p>
               </div>
