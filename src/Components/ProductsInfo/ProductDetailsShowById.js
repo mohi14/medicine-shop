@@ -168,24 +168,31 @@ const ProductDetailsShowById = () => {
             <div className="col-lg-8 col-md-12 ">
               <div className="ltn__shop-details-inner mb-60">
                 <div className="row">
-                  <ReactImageMagnify
-                    {...{
-                      smallImage: {
-                        alt: "Wristwatch by Ted Baker London",
-                        isFluidWidth: true,
-                        src: singleProduct.imageUrl,
-                      },
-                      largeImage: {
-                        src: singleProduct.imageUrl,
-                        width: 1200,
-                        height: 1800,
-                      },
-                    }}
-                  />
-                  <div
-                    className="col-md-6 image-box "
-                    onmousemove="zoom(event)"
-                  >
+                  <div className="col-md-6">
+                    <ReactImageMagnify
+                      {...{
+                        smallImage: {
+                          alt: "Products",
+                          isFluidWidth: true,
+                          src: singleProduct.imageUrl,
+                        },
+                        largeImage: {
+                          src: singleProduct.imageUrl,
+                          width: 1200,
+                          height: 1800,
+                        },
+                        enlargedImageContainerDimensions: {
+                          width: "212%",
+                          height: "130%",
+                        },
+                        shouldUsePositiveSpaceLens: true,
+                      }}
+                      enlargedImageContainerStyle={{
+                        zIndex: "9999",
+                        background: "#FFFFFF",
+                      }}
+                      style={{ cursor: "zoom-in" }}
+                    />
                     <div className="ltn__shop-details-img-gallery ">
                       {/* <div className="ltn__shop-details-large-img">
                                         <div className="single-large-img">

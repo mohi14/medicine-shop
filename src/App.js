@@ -12,6 +12,7 @@ import ScrollTOTop from "./SharedPages/ScrollTOTop";
 import AccountDetails from "./SharedPages/AccountDetails";
 import Product from "./Pages/Product";
 import Main from "./Layouts/Main";
+import Checkout from "./Pages/Checkout";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           {/* navbar about section */}
           <Route path="/about" element={<AboutNavBar></AboutNavBar>} />
           <Route path="/service" element={<ServicesNavbar></ServicesNavbar>} />
+          <Route path="/checkout" element={<Checkout></Checkout>} />
 
           {/* navbar about section */}
 
