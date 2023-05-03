@@ -1,7 +1,71 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+import {
+  addToCart,
+  addToWishlist,
+  removeFromWishlist,
+  showViewProduct,
+} from "../features/cart/cartSlice";
 
+const trendingProducts = [
+  {
+    productID: 1,
+    productName: "Antiseptic Spray",
+    productPrice: 32.0,
+    productPreviousPrice: 46.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/1.png",
+  },
+
+  {
+    productID: 2,
+    productName: "Digital Stethoscope",
+    productPrice: 25.0,
+    productPreviousPrice: 35.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/2.png",
+  },
+
+  {
+    productID: 3,
+    productName: "Cosmetic Containers",
+    productPrice: 75.0,
+    productPreviousPrice: 92.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/3.png",
+  },
+
+  {
+    productID: 4,
+    productName: "Cosmetic Containers",
+    productPrice: 78.0,
+    productPreviousPrice: 85.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/4.png",
+  },
+
+  {
+    productID: 5,
+    productName: "Blue Hand Gloves",
+    productPrice: 150.0,
+    productPreviousPrice: 180.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/5.png",
+  },
+
+  {
+    productID: 6,
+    productName: "Thermometer Gun",
+    productPrice: 150.0,
+    productPreviousPrice: 180.0,
+    imageUrl:
+      "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/6.png",
+  },
+];
 const TrendingProducts = () => {
+  const dispatch = useDispatch();
+  const { wishlist, viewProduct } = useSelector((state) => state.cart);
   // const [trendingProducts, settrendingProducts] = useState([]);
 
   // useEffect(() => {
@@ -10,61 +74,23 @@ const TrendingProducts = () => {
   //     .then((data) => settrendingProducts(data));
   // }, []);
 
-  const trendingProducts = [
-    {
-      productID: 1,
-      productName: "Antiseptic Spray",
-      productPrice: 32.0,
-      productPreviousPrice: 46.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/1.png",
-    },
+  const handleViewProduct = (product) => {
+    dispatch(showViewProduct(product));
+  };
 
-    {
-      productID: 2,
-      productName: "Digital Stethoscope",
-      productPrice: 25.0,
-      productPreviousPrice: 35.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/2.png",
-    },
+  const handleAddtoCart = (product) => {
+    // console.log(product, "home");
+    dispatch(addToCart(product));
+  };
 
-    {
-      productID: 3,
-      productName: "Cosmetic Containers",
-      productPrice: 75.0,
-      productPreviousPrice: 92.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/3.png",
-    },
+  const handleRemoveWishListed = (id) => {
+    dispatch(removeFromWishlist(id));
+  };
+  const handleWishListed = (prduct) => {
+    dispatch(addToWishlist(prduct));
+    dispatch(showViewProduct(prduct));
+  };
 
-    {
-      productID: 4,
-      productName: "Cosmetic Containers",
-      productPrice: 78.0,
-      productPreviousPrice: 85.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/4.png",
-    },
-
-    {
-      productID: 5,
-      productName: "Blue Hand Gloves",
-      productPrice: 150.0,
-      productPreviousPrice: 180.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/5.png",
-    },
-
-    {
-      productID: 6,
-      productName: "Thermometer Gun",
-      productPrice: 150.0,
-      productPreviousPrice: 180.0,
-      imageUrl:
-        "https://tunatheme.com/tf/html/vicodin-preview/vicodin/img/product/6.png",
-    },
-  ];
   return (
     <>
       {/* <!-- PRODUCT AREA START (product-item-3) --> */}
@@ -95,15 +121,17 @@ const TrendingProducts = () => {
                       <ul>
                         <li>
                           <a
+                            onClick={() => handleViewProduct(trendingProduct)}
+                            type="button"
                             href="#"
                             title="Quick View"
                             data-bs-toggle="modal"
-                            data-bs-target="#quick_view_modal"
+                            data-bs-target="#exampleModal"
                           >
                             <i className="far fa-eye"></i>
                           </a>
                         </li>
-                        <li>
+                        <li onClick={() => handleAddtoCart(trendingProduct)}>
                           <a
                             href="#"
                             title="Add to Cart"
@@ -113,16 +141,28 @@ const TrendingProducts = () => {
                             <i className="fas fa-shopping-cart"></i>
                           </a>
                         </li>
-                        <li>
-                          <a
-                            href="#"
-                            title="Wishlist"
-                            data-bs-toggle="modal"
-                            data-bs-target="#liton_wishlist_modal"
+                        {wishlist.includes(trendingProduct) ? (
+                          <li
+                            onClick={() =>
+                              handleRemoveWishListed(trendingProduct?.productID)
+                            }
                           >
-                            <i className="far fa-heart"></i>
-                          </a>
-                        </li>
+                            <a href="#" title="Wishlist">
+                              <i class="fa-solid fa-heart"></i>
+                            </a>
+                          </li>
+                        ) : (
+                          <li onClick={() => handleWishListed(trendingProduct)}>
+                            <a
+                              href="#"
+                              title="Wishlist"
+                              data-bs-toggle="modal"
+                              data-bs-target="#liton_wishlist_modal"
+                            >
+                              <i className="far fa-heart"></i>
+                            </a>
+                          </li>
+                        )}
                       </ul>
                     </div>
                   </div>

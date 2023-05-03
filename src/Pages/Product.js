@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import AboutNaveBarHeader from "../SharedPages/AboutNaveBarHeader";
-import { useDispatch } from "react-redux";
-import { addToCart, addToWishlist } from "../features/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  addToWishlist,
+  removeFromWishlist,
+  showViewProduct,
+} from "../features/cart/cartSlice";
 
 const products = [
   {
@@ -70,18 +75,27 @@ const Product = () => {
   // }, []);
 
   const dispatch = useDispatch();
+  const { wishlist, viewProduct } = useSelector((state) => state.cart);
 
   const [selectedProduct, setSelectedProduct] = useState("");
 
   const handleAddtoCart = (product) => {
+    // console.log(product, "home");
     dispatch(addToCart(product));
+  };
+
+  const handleViewProduct = (product) => {
+    dispatch(showViewProduct(product));
   };
 
   const handleWishListed = (prduct) => {
     dispatch(addToWishlist(prduct));
+    dispatch(showViewProduct(prduct));
   };
 
-  console.log(selectedProduct, "seafaf");
+  const handleRemoveWishListed = (id) => {
+    dispatch(removeFromWishlist(id));
+  };
 
   return (
     <>
@@ -143,7 +157,7 @@ const Product = () => {
                           <ul>
                             <li>
                               <a
-                                onClick={() => setSelectedProduct(product)}
+                                onClick={() => handleViewProduct(product)}
                                 type="button"
                                 data-bs-target="#exampleModal"
                                 href="#"
@@ -163,16 +177,28 @@ const Product = () => {
                                 <i className="fas fa-shopping-cart"></i>
                               </a>
                             </li>
-                            <li onClick={() => handleWishListed(product)}>
-                              <a
-                                href="#"
-                                title="Wishlist"
-                                data-bs-toggle="modal"
-                                data-bs-target="#liton_wishlist_modal"
+                            {wishlist.includes(product) ? (
+                              <li
+                                onClick={() =>
+                                  handleRemoveWishListed(product?.productID)
+                                }
                               >
-                                <i className="far fa-heart"></i>
-                              </a>
-                            </li>
+                                <a href="#" title="Wishlist">
+                                  <i class="fa-solid fa-heart"></i>
+                                </a>
+                              </li>
+                            ) : (
+                              <li onClick={() => handleWishListed(product)}>
+                                <a
+                                  href="#"
+                                  title="Wishlist"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#liton_wishlist_modal"
+                                >
+                                  <i className="far fa-heart"></i>
+                                </a>
+                              </li>
+                            )}
                           </ul>
                         </div>
                       </div>
@@ -243,12 +269,12 @@ const Product = () => {
               ></button>
             </div>
             <div class="modal-body">
-              <img src={selectedProduct?.imageUrl} alt="" />
+              <img src={viewProduct?.imageUrl} alt="" />
               <div className="product-price mt-3">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  {selectedProduct?.productName}
+                  {viewProduct?.productName}
                 </h1>
-                <span>Price: ${selectedProduct?.productPrice}</span>
+                <span>Price: ${viewProduct?.productPrice}</span>
               </div>
             </div>
             {/* <div class="modal-footer">
@@ -286,12 +312,12 @@ const Product = () => {
                     <div class="row">
                       <div class="col-12">
                         <div class="modal-product-img">
-                          <img src="img/product/7.png" alt="#" />
+                          <img src={viewProduct?.imageUrl} alt="#" />
                         </div>
                         <div class="modal-product-info">
                           <h5>
                             <a href="product-details.html">
-                              Digital Stethoscope
+                              {viewProduct?.productName}
                             </a>
                           </h5>
                           <p class="added-cart">

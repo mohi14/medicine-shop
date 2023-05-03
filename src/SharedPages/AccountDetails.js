@@ -14,7 +14,7 @@ const AccountDetails = () => {
 
   return (
     <>
-      <AboutNaveBarHeader></AboutNaveBarHeader>
+      {/* <AboutNaveBarHeader></AboutNaveBarHeader> */}
 
       {/*  <!-- BREADCRUMB AREA START --> */}
       <div
@@ -384,7 +384,7 @@ const AccountDetails = () => {
       </div>
       {/*  <!-- CALL TO ACTION END --> */}
 
-      <AboutNavBarFooter></AboutNavBarFooter>
+      {/* <AboutNavBarFooter></AboutNavBarFooter> */}
     </>
   );
 };

@@ -166,7 +166,7 @@ const Header = () => {
                             <NavLink to="/shopgrid">Shop Grid</NavLink>
                           </li>
 
-                          <li className="menu-icon">
+                          {/* <li className="menu-icon">
                             <a href="#">Pages</a>
                             <ul className="mega-menu">
                               <li>
@@ -257,7 +257,7 @@ const Header = () => {
                                 </Link>
                               </li>
                             </ul>
-                          </li>
+                          </li> */}
                           <li>
                             <NavLink to="/contact">Contact</NavLink>
                           </li>
@@ -268,7 +268,7 @@ const Header = () => {
                 </div>
                 <div className="col--- ltn__header-options ltn__header-options-2 mb-sm-20">
                   {/* <!-- header-search-1 --> */}
-                  <div className="header-search-wrap">
+                  {/* <div className="header-search-wrap">
                     <div className="header-search-1">
                       <div className="search-icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -290,7 +290,7 @@ const Header = () => {
                         </button>
                       </form>
                     </div>
-                  </div>
+                  </div> */}
                   {/* <!-- user-menu --> */}
                   <div className="ltn__drop-menu user-menu">
                     <ul>

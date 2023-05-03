@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [],
   wishlist: [],
+  viewProduct: {},
 };
 
 const cartSlice = createSlice({
@@ -14,9 +15,8 @@ const cartSlice = createSlice({
         (i) => i.productID === action.payload.productID
       );
       if (index === -1) {
-        let products = action.payload;
-        products.cartQuantity = 1;
-        state.products.push(products);
+        let product = { ...action.payload, cartQuantity: 1 };
+        state.products.push(product);
       } else {
         const newItems = state.products;
         newItems[index].cartQuantity += 1;
@@ -41,22 +41,31 @@ const cartSlice = createSlice({
       }
     },
     addToWishlist: (state, action) => {
-      // const wishListIndex = state.wishlist.findIndex(
-      //   (i) => i.productID === action.payload.productID
-      // );
-      // const productIndex = state.products.findIndex(
-      //   (i) => i.productID === action.payload.productID
-      // );
-      // const items = state.products;
-      // if (wishListIndex === -1) {
-      //   state.wishlist.push(action.payload);
-      //   items[productIndex].wishlisted = true;
-      // }
-      state.wishlist.push(action.payload);
+      const index = state.wishlist.findIndex(
+        (i) => i.productID === action.payload.productID
+      );
+      if (index === -1) {
+        state.wishlist.push(action.payload);
+      }
+    },
+    removeFromWishlist: (state, action) => {
+      const newProducts = state.wishlist.filter(
+        (i) => i.productID !== action.payload
+      );
+      state.wishlist = newProducts;
+    },
+    showViewProduct: (state, action) => {
+      state.viewProduct = action.payload;
     },
   },
 });
 
 export default cartSlice.reducer;
-export const { addToCart, removeFromCart, editCartQuantity, addToWishlist } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  editCartQuantity,
+  addToWishlist,
+  removeFromWishlist,
+  showViewProduct,
+} = cartSlice.actions;

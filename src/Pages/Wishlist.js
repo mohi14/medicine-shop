@@ -1,9 +1,20 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromWishlist } from "../features/cart/cartSlice";
 
 const Wishlist = () => {
-  const { wishlist } = useSelector((state) => state.cart);
-  console.log(wishlist, "jjkl");
+  const { wishlist, products } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const handleRemoveFromWishlist = (id) => {
+    dispatch(removeFromWishlist(id));
+  };
+
+  const handleAddtoCart = (product) => {
+    dispatch(addToCart(product));
+
+    console.log(product, "wish");
+  };
   return (
     <>
       <div class="ltn__utilize-overlay"></div>
@@ -55,86 +66,48 @@ const Wishlist = () => {
                                 <th class="cart-product-subtotal">Subtotal</th>
                             </thead> --> */}
                     <tbody>
-                      <tr>
-                        <td class="cart-product-remove">x</td>
-                        <td class="cart-product-image">
-                          <a href="product-details.html">
-                            <img src="img/product/1.png" alt="#" />
-                          </a>
-                        </td>
-                        <td class="cart-product-info">
-                          <h4>
+                      {wishlist?.map((i) => (
+                        <tr>
+                          <td
+                            class="cart-product-remove"
+                            onClick={() =>
+                              handleRemoveFromWishlist(i?.productID)
+                            }
+                          >
+                            x
+                          </td>
+                          <td class="cart-product-image">
                             <a href="product-details.html">
-                              Digital Stethoscope
+                              <img src={i?.imageUrl} alt="#" />
                             </a>
-                          </h4>
-                        </td>
-                        <td class="cart-product-price">$85.00</td>
-                        <td class="cart-product-stock">In Stock</td>
-                        <td class="cart-product-add-cart">
-                          <a
-                            class="submit-button-1"
-                            href="#"
-                            title="Add to Cart"
-                            data-bs-toggle="modal"
-                            data-bs-target="#add_to_cart_modal"
-                          >
-                            Add to Cart
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="cart-product-remove">x</td>
-                        <td class="cart-product-image">
-                          <a href="product-details.html">
-                            <img src="img/product/2.png" alt="#" />
-                          </a>
-                        </td>
-                        <td class="cart-product-info">
-                          <h4>
-                            <a href="product-details.html">Thermometer Gun</a>
-                          </h4>
-                        </td>
-                        <td class="cart-product-price">$89.00</td>
-                        <td class="cart-product-stock">In Stock</td>
-                        <td class="cart-product-add-cart">
-                          <a
-                            class="submit-button-1"
-                            href="#"
-                            title="Add to Cart"
-                            data-bs-toggle="modal"
-                            data-bs-target="#add_to_cart_modal"
-                          >
-                            Add to Cart
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="cart-product-remove">x</td>
-                        <td class="cart-product-image">
-                          <a href="product-details.html">
-                            <img src="img/product/4.png" alt="#" />
-                          </a>
-                        </td>
-                        <td class="cart-product-info">
-                          <h4>
-                            <a href="product-details.html">Tail Light Lens</a>
-                          </h4>
-                        </td>
-                        <td class="cart-product-price">$149.00</td>
-                        <td class="cart-product-stock">In Stock</td>
-                        <td class="cart-product-add-cart">
-                          <a
-                            class="submit-button-1"
-                            href="#"
-                            title="Add to Cart"
-                            data-bs-toggle="modal"
-                            data-bs-target="#add_to_cart_modal"
-                          >
-                            Add to Cart
-                          </a>
-                        </td>
-                      </tr>
+                          </td>
+                          <td class="cart-product-info">
+                            <h4>
+                              <a href="product-details.html">
+                                {i?.productName}
+                              </a>
+                            </h4>
+                          </td>
+                          <td class="cart-product-price">${i?.productPrice}</td>
+                          <td class="cart-product-stock">In Stock</td>
+                          <td class="cart-product-add-cart">
+                            {products.includes(i) ? (
+                              ""
+                            ) : (
+                              <button
+                                class="submit-button-1"
+                                href="#"
+                                title="Add to Cart"
+                                data-bs-toggle="modal"
+                                data-bs-target="#add_to_cart_modal"
+                                onClick={() => handleAddtoCart(i)}
+                              >
+                                Add to Cart
+                              </button>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
