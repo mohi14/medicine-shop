@@ -15,9 +15,26 @@ import Main from "./Layouts/Main";
 import Checkout from "./Pages/Checkout";
 import Cart from "./Pages/Cart";
 import Wishlist from "./Pages/Wishlist";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { loadProducts } from "./features/cart/cartSlice";
 
 function App() {
-  return (
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const carts = localStorage.getItem("vicodinCart");
+    if (carts) {
+      const allProducts = JSON.parse(carts);
+      dispatch(loadProducts(allProducts));
+      setIsLoading(false);
+    } else {
+      setIsLoading(false);
+    }
+  }, []);
+  return isLoading ? (
+    <div></div>
+  ) : (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />}>

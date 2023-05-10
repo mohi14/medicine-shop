@@ -17,9 +17,11 @@ const cartSlice = createSlice({
       if (index === -1) {
         let product = { ...action.payload, cartQuantity: 1 };
         state.products.push(product);
+        localStorage.setItem("vicodinCart", JSON.stringify(state));
       } else {
         const newItems = state.products;
         newItems[index].cartQuantity += 1;
+        localStorage.setItem("vicodinCart", JSON.stringify(state));
       }
     },
     removeFromCart: (state, action) => {
@@ -28,6 +30,7 @@ const cartSlice = createSlice({
       );
 
       state.products = newItems;
+      localStorage.setItem("vicodinCart", JSON.stringify(state));
     },
     editCartQuantity: (state, action) => {
       const index = state.products.findIndex(
@@ -36,8 +39,10 @@ const cartSlice = createSlice({
       const items = state.products;
       if (action.payload.status === "increase") {
         items[index].cartQuantity += 1;
+        localStorage.setItem("vicodinCart", JSON.stringify(state));
       } else if (action.payload.status === "decrease") {
         items[index].cartQuantity -= 1;
+        localStorage.setItem("vicodinCart", JSON.stringify(state));
       }
     },
     addToWishlist: (state, action) => {
@@ -46,6 +51,7 @@ const cartSlice = createSlice({
       );
       if (index === -1) {
         state.wishlist.push(action.payload);
+        localStorage.setItem("vicodinCart", JSON.stringify(state));
       }
     },
     removeFromWishlist: (state, action) => {
@@ -53,9 +59,16 @@ const cartSlice = createSlice({
         (i) => i.productID !== action.payload
       );
       state.wishlist = newProducts;
+      localStorage.setItem("vicodinCart", JSON.stringify(state));
     },
     showViewProduct: (state, action) => {
       state.viewProduct = action.payload;
+      localStorage.setItem("vicodinCart", JSON.stringify(state));
+    },
+    loadProducts: (state, action) => {
+      state.products = action.payload.products;
+      state.wishlist = action.payload.wishlist;
+      state.viewProduct = action.payload.viewProduct;
     },
   },
 });
@@ -68,4 +81,5 @@ export const {
   addToWishlist,
   removeFromWishlist,
   showViewProduct,
+  loadProducts,
 } = cartSlice.actions;

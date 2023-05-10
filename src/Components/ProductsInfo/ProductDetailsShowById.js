@@ -182,12 +182,13 @@ const ProductDetailsShowById = () => {
                           height: 1800,
                         },
                         enlargedImageContainerDimensions: {
-                          width: "212%",
+                          width: "250%",
                           height: "130%",
                         },
                         shouldUsePositiveSpaceLens: true,
                       }}
                       enlargedImageContainerStyle={{
+                        objectFit: "contain",
                         zIndex: "9999",
                         background: "#FFFFFF",
                       }}

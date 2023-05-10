@@ -97,6 +97,12 @@ const Product = () => {
     dispatch(removeFromWishlist(id));
   };
 
+  // useEffect(() => {
+  //   localStorage.setItem("vicodinCart", JSON.stringify(wishlist));
+  // }, [wishlist, viewProduct, products]);
+
+  console.log("jkjf", wishlist);
+
   return (
     <>
       {/* <!-- PRODUCT AREA START (product-item-3) --> */}
